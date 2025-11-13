@@ -1,0 +1,8 @@
+flask
+flask-cors
+elasticsearch
+pymongo
+pdfminer.six
+scikit-learn
+requests
+beautifulsoup4
