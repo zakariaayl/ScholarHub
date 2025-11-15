@@ -1,0 +1,20 @@
+Titre: Erasmus Mundus Joint Master Degree
+Pays: Europe (Multiple)
+Domaine: Data Science, Computer Science
+Niveau: Master
+Deadline: 2026-02-01
+
+Description:
+Erasmus Mundus propose des bourses complètes pour des programmes de master conjoints 
+entre plusieurs universités européennes. Les étudiants étudient dans au moins 2 pays 
+différents pendant leur cursus de 2 ans.
+
+La bourse couvre tous les frais de scolarité, les frais de voyage, l'assurance et 
+une allocation mensuelle de 1400 euros. Plus de 150 programmes disponibles dans 
+divers domaines académiques.
+
+Éligibilité: Ouvert aux étudiants du monde entier
+Durée: 2 ans (120 ECTS)
+Financement: 25000-50000 euros au total
+
+Contact: eacea-eplus-emjmd-info@ec.europa.eu

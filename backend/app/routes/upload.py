@@ -1,36 +1,52 @@
-import os
 from flask import Blueprint, request, jsonify
-from werkzeug.utils import secure_filename
-from app.services.extractor import extract_text_from_pdf
-from app.services.indexer import index_scholarship
+from app.services.extractor import DocumentExtractor
+from app.services.indexer import TFIDFIndexer
+from config import Config
+import os
 
-upload_bp = Blueprint("upload_bp", __name__)
+upload_bp = Blueprint('upload', __name__)
 
-UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+# Instance globale de l'indexeur
+indexer = TFIDFIndexer(language=Config.LANGUAGE, use_stemming=Config.USE_STEMMING)
 
-@upload_bp.route("/", methods=["POST"])
-def upload_file():
-    if "file" not in request.files:
-        return jsonify({"error": "No file provided"}), 400
+@upload_bp.route('/index', methods=['POST'])
+def index_documents():
+    try:
+        # Extraire les documents
+        documents = DocumentExtractor.process_folder(Config.UPLOAD_FOLDER)
+        
+        if not documents:
+            return jsonify({
+                'status': 'error',
+                'message': 'Aucun document trouvé'
+            }), 404
+        
+        # Construire l'index
+        indexer.build_index(documents)
+        
+        # Sauvegarder dans MongoDB ET JSON (pour le rapport)
+        indexer.save_to_mongodb()  # Pour l'application
+        indexer.save_to_json()     # Pour le rapport (capture d'écran)
+        
+        stats = indexer.get_index_stats()
+        
+        return jsonify({
+            'status': 'success',
+            'message': f'{len(documents)} documents indexés',
+            'stats': stats
+        })
+    
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
 
-    file = request.files["file"]
-    filename = secure_filename(file.filename)
-    file_path = os.path.join(UPLOAD_FOLDER, filename)
-    file.save(file_path)
-
-    # Extraction texte
-    text = extract_text_from_pdf(file_path)
-
-    # Exemple simple de métadonnées (à adapter)
-    data = {
-        "title": filename,
-        "domain": request.form.get("domain", "Inconnu"),
-        "country": request.form.get("country", "Non spécifié"),
-        "level": request.form.get("level", "Master"),
-        "deadline": request.form.get("deadline", "N/A"),
-        "description": text[:2000],  # limiter longueur
-    }
-
-    index_scholarship(data)
-    return jsonify({"message": "Scholarship indexed successfully"}), 201
+@upload_bp.route('/index/stats', methods=['GET'])
+def get_index_stats():
+    """Retourne les statistiques de l'index"""
+    if indexer.num_docs == 0:
+        return jsonify({
+            'status': 'error',
+            'message': 'Index non construit. Appelez /index d\'abord'
+        }), 400
+    
+    stats = indexer.get_index_stats()
+    return jsonify(stats)

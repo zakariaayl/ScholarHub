@@ -1,35 +1,64 @@
 from flask import Blueprint, request, jsonify
-from app import es
-from app.services.recommender import get_similar_scholarships
+from app.services.search import TFIDFSearcher
+from app.routes.upload import indexer  # Importer l'indexeur global
 
-search_bp = Blueprint("search_bp", __name__)
+search_bp = Blueprint('search', __name__)
 
-@search_bp.route("/", methods=["GET"])
+# Instance du moteur de recherche
+searcher = None
+
+@search_bp.route('/search', methods=['GET'])
 def search():
-    query = request.args.get("q", "")
+    """
+    Endpoint de recherche
+    Paramètres:
+        - q: requête (obligatoire)
+        - top_k: nombre de résultats (optionnel, défaut=10)
+        - pays: filtre par pays (optionnel)
+        - domaine: filtre par domaine (optionnel)
+    """
+    global searcher
+    
+    # Vérifier que l'index est construit
+    if indexer.num_docs == 0:
+        return jsonify({
+            'status': 'error',
+            'message': 'Index non construit. Appelez /index d\'abord'
+        }), 400
+    
+    # Initialiser le searcher si nécessaire
+    if searcher is None:
+        searcher = TFIDFSearcher(indexer)
+    
+    # Récupérer les paramètres
+    query = request.args.get('q', '').strip()
+    top_k = int(request.args.get('top_k', 10))
+    
     if not query:
-        return jsonify({"error": "No query provided"}), 400
-
-    body = {
-        "query": {
-            "multi_match": {
-                "query": query,
-                "fields": ["title^3", "domain^2", "country", "level", "description"]
-            }
-        },
-        "sort": [{"publication_date": {"order": "desc"}}]
-    }
-
-    results = es.search(index="scholarships", body=body)
-    hits = [hit["_source"] for hit in results["hits"]["hits"]]
-
-    # Suggestions IA si un résultat existe
-    suggestions = []
-    if hits:
-        first_title = hits[0]["title"]
-        suggestions = get_similar_scholarships(first_title)
-
+        return jsonify({
+            'status': 'error',
+            'message': 'Paramètre "q" (requête) requis'
+        }), 400
+    
+    # Récupérer les filtres optionnels
+    filters = {}
+    if request.args.get('pays'):
+        filters['pays'] = request.args.get('pays')
+    if request.args.get('domaine'):
+        filters['domaine'] = request.args.get('domaine')
+    
+    # Recherche
+    if filters:
+        results = searcher.search_with_filters(query, filters, top_k)
+    else:
+        results = searcher.search(query, top_k)
+    
+    # Convertir en JSON
+    results_json = [r.to_dict() for r in results]
+    
     return jsonify({
-        "results": hits,
-        "suggestions": suggestions
+        'query': query,
+        'filters': filters,
+        'count': len(results_json),
+        'results': results_json
     })
