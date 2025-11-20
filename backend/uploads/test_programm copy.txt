@@ -1,0 +1,18 @@
+Titre: Bourse Eiffel Excellence
+Pays: France
+Domaine: Intelligence Artificielle, Data Science
+Niveau: Master, Doctorat
+Deadline: 2026-01-15
+
+Description:
+Le programme de bourses Eiffel Excellence du Ministère français des Affaires Étrangères 
+vise à attirer les meilleurs étudiants étrangers dans les établissements d'enseignement 
+supérieur français. Cette bourse couvre les frais de scolarité, l'hébergement et une 
+allocation mensuelle de 1400 euros pour les masters et 1700 euros pour les doctorats.
+
+Les candidats doivent être âgés de moins de 30 ans pour le master et 35 ans pour le doctorat.
+Les domaines prioritaires incluent l'intelligence artificielle, la cybersécurité, 
+les sciences de l'ingénieur et le développement durable.
+
+Contact: campus.france@diplomatie.gouv.fr
+Site web: www.campusfrance.org/fr/bourse-eiffel

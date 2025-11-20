@@ -25,8 +25,8 @@ class TextPreprocessor:
         
         # Charger stop words (français + anglais)
         self.stop_words = set(
-            stopwords.words('french') + 
-            stopwords.words('english')
+            stopwords.words('french') 
+            # stopwords.words('english')
         )
         
         # Stemmer
@@ -152,7 +152,7 @@ class TFIDFIndexer:
         sorted_terms = sorted(term_counts.items(), key=lambda x: x[1], reverse=True)
         return sorted_terms[:n]
     
-    def save_to_json(self, filepath='data/inverted_index.json'):
+    def save_to_json(self, filepath='uploads/data/inverted_index.json'):
         """Sauvegarde l'index en JSON"""
         data = {
             'inverted_index': {
@@ -170,7 +170,7 @@ class TFIDFIndexer:
         
         print(f" Index sauvegardé dans {filepath}")
     
-    def load_from_json(self, filepath='data/inverted_index.json'):
+    def load_from_json(self, filepath='uploads/data/inverted_index.json'):
         """Charge l'index depuis JSON"""
         with open(filepath, 'r', encoding='utf-8') as f:
             data = json.load(f)

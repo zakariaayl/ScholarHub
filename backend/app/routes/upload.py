@@ -8,6 +8,7 @@ upload_bp = Blueprint('upload', __name__)
 
 # Instance globale de l'indexeur
 indexer = TFIDFIndexer(language=Config.LANGUAGE, use_stemming=Config.USE_STEMMING)
+print("indexer is :",indexer)
 
 @upload_bp.route('/index', methods=['POST'])
 def index_documents():
