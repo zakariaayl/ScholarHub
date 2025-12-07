@@ -71,14 +71,41 @@ class TFIDFIndexer:
     
     def __init__(self, language='french', use_stemming=True):
         self.preprocessor = TextPreprocessor(language, use_stemming)
+        self.model = SentenceTransformer('all-MiniLM-L6-v2')  # Initialiser le modèle d'embeddding
         
-        # Structure de l'inverted index
         self.inverted_index = defaultdict(list)  # {terme: [(doc_id, tf), ...]}
         self.documents = {}  # {doc_id: Document}
         self.idf = {}  # {terme: idf_score}
         self.doc_lengths = {}  # {doc_id: nombre_tokens}
         self.num_docs = 0
+        self.document_embeddings = []
     
+    def build_index(self, documents: List[Dict]):
+        """Construit l'index inversé et génère des embeddings pour chaque document"""
+        print("Construction de l'index inversé et des embeddings...")
+        
+        self.num_docs = len(documents)
+        
+        # Phase 1 : Construire l'index et générer des embeddings
+        for doc_id, doc in enumerate(documents):
+            content = doc['content']
+            
+            # Prétraiter le texte
+            tokens = self.preprocessor.preprocess(content)
+            
+            # Stocker le document
+            self.documents[doc_id] = doc
+            self.doc_lengths[doc_id] = len(tokens)
+            
+            # Générer l'embedding du document
+            embedding = self.model.encode(content)
+            self.document_embeddings.append(embedding)
+        
+        # Calculer l'IDF et créer l'index inversé
+        self.calculate_idf()
+        
+        print(f"Index construit : {len(self.inverted_index)} termes uniques")
+        print(f"{self.num_docs} documents indexés")
     def calculate_tf(self, tokens: List[str]) -> Dict[str, float]:
         """Calcule Term Frequency pour une liste de tokens"""
         term_freq = defaultdict(int)
@@ -152,7 +179,7 @@ class TFIDFIndexer:
         sorted_terms = sorted(term_counts.items(), key=lambda x: x[1], reverse=True)
         return sorted_terms[:n]
     
-    def save_to_json(self, filepath='uploads/data/inverted_index.json'):
+    def save_to_json(self, filepath='C:/Users/ayoug/Myprojects/ScholarHub/backend/uploads/data/inverted_index.json'):
         """Sauvegarde l'index en JSON"""
         data = {
             'inverted_index': {
@@ -185,52 +212,95 @@ class TFIDFIndexer:
 
 
     def save_to_mongodb(self):
-     from app.utils.db import mongodb
+        print("saving")
+    #  from app.utils.db import mongodb
     
-     db = mongodb.connect()
-     if db is None:
-        print(" Impossible de se connecter à MongoDB")
-        return False
+    #  db = mongodb.connect()
+    #  if db is None:
+    #     print(" Impossible de se connecter à MongoDB")
+    #     return False
     
-     try:
-        # Collection pour l'inverted index
-        index_collection = db['inverted_index']
-        index_collection.delete_many({})  # Nettoyer
+    #  try:
+    #     # Collection pour l'inverted index
+    #     index_collection = db['inverted_index']
+    #     index_collection.delete_many({})  # Nettoyer
         
-        # Insérer les termes avec leurs postings
-        for term, postings in self.inverted_index.items():
-            index_collection.insert_one({
-                'term': term,
-                'postings': postings,
-                'idf': self.idf[term],
-                'doc_frequency': len(postings)
-            })
+    #     # Insérer les termes avec leurs postings
+    #     for term, postings in self.inverted_index.items():
+    #         index_collection.insert_one({
+    #             'term': term,
+    #             'postings': postings,
+    #             'idf': self.idf[term],
+    #             'doc_frequency': len(postings)
+    #         })
         
-        # Collection pour les documents
-        docs_collection = db['documents']
-        docs_collection.delete_many({})
+    #     # Collection pour les documents
+    #     docs_collection = db['documents']
+    #     docs_collection.delete_many({})
         
-        for doc_id, doc in self.documents.items():
-            docs_collection.insert_one({
-                'doc_id': doc_id,
-                'filename': doc['filename'],
-                'content': doc['content'],
-                'metadata': doc.get('metadata', {}),
-                'length': self.doc_lengths[doc_id]
-            })
+    #     for doc_id, doc in self.documents.items():
+    #         docs_collection.insert_one({
+    #             'doc_id': doc_id,
+    #             'filename': doc['filename'],
+    #             'content': doc['content'],
+    #             'metadata': doc.get('metadata', {}),
+    #             'length': self.doc_lengths[doc_id]
+    #         })
         
-        # Collection pour les métadonnées de l'index
-        meta_collection = db['index_metadata']
-        meta_collection.delete_many({})
-        meta_collection.insert_one({
-            'num_documents': self.num_docs,
-            'num_terms': len(self.inverted_index),
-            'indexed_at': datetime.now()
-        })
+    #     # Collection pour les métadonnées de l'index
+    #     meta_collection = db['index_metadata']
+    #     meta_collection.delete_many({})
+    #     meta_collection.insert_one({
+    #         'num_documents': self.num_docs,
+    #         'num_terms': len(self.inverted_index),
+    #         'indexed_at': datetime.now()
+    #     })
         
-        print(f" Index sauvegardé dans MongoDB ({len(self.inverted_index)} termes)")
-        return True
+    #     print(f" Index sauvegardé dans MongoDB ({len(self.inverted_index)} termes)")
+    #     return True
     
-     except Exception as e: 
-        print(f" Erreur sauvegarde MongoDB : {e}")
-        return False
+    #  except Exception as e: 
+    #     print(f" Erreur sauvegarde MongoDB : {e}")
+    #     return False
+    
+from sentence_transformers import SentenceTransformer
+
+class SemanticIndexer(TFIDFIndexer):
+    """Indexeur pour recherche sémantique (TF-IDF + embeddings)"""
+    
+    def __init__(self, language='french', use_stemming=True):
+        super().__init__(language, use_stemming)
+        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+    
+    def build_index(self, documents: List[Dict]):
+        print("Construction de l'index TF-IDF + embeddings...")
+        
+        self.num_docs = len(documents)
+        texts = []
+        
+        for doc_id, doc in enumerate(documents):
+            content = doc['content']
+            
+            # Prétraitement + TF-IDF
+            tokens = self.preprocessor.preprocess(content)
+            self.documents[doc_id] = doc
+            self.doc_lengths[doc_id] = len(tokens)
+            
+            tf_scores = self.calculate_tf(tokens)
+            for term, tf in tf_scores.items():
+                self.inverted_index[term].append((doc_id, tf))
+            
+            # On garde le texte brut pour l'embedding
+            texts.append(content)
+        
+        # Embeddings pour tous les docs en une seule fois -> matrice (N_docs, dim)
+        if texts:
+            self.document_embeddings = self.model.encode(texts)
+        else:
+            self.document_embeddings = np.zeros((0, 384))  # all-MiniLM-L6-v2 dim ≈ 384
+        
+        # Calcul IDF
+        self.calculate_idf()
+        
+        print(f"Index construit : {len(self.inverted_index)} termes uniques")
+        print(f"{self.num_docs} documents indexés, embeddings shape = {self.document_embeddings.shape}")

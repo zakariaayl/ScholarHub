@@ -4,15 +4,14 @@ from app.services.indexer import TFIDFIndexer,SemanticIndexer
 from config import Config
 import os
 
-upload_bp = Blueprint('upload', __name__)
+upload_sem = Blueprint('uploadSemantic', __name__)
 
-# Instance globale de l'indexeur
-indexer = TFIDFIndexer(language=Config.LANGUAGE, use_stemming=Config.USE_STEMMING)
-# indexer = SemanticIndexer(language=Config.LANGUAGE, use_stemming=Config.USE_STEMMING)
+
+indexer = SemanticIndexer(language=Config.LANGUAGE, use_stemming=Config.USE_STEMMING)
 print("indexer is :", indexer)
 
 
-@upload_bp.route('/index', methods=['POST'])
+@upload_sem.route('/index-Semantic', methods=['POST'])
 def index_documents():
     try:
         # Extraire les documents
@@ -42,7 +41,7 @@ def index_documents():
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
 
-@upload_bp.route('/index/stats', methods=['GET'])
+@upload_sem.route('/index-semantic/stats', methods=['GET'])
 def get_index_stats():
     """Retourne les statistiques de l'index"""
     if indexer.num_docs == 0:

@@ -1,7 +1,9 @@
 from flask import Flask
 from flask_cors import CORS
 from app.routes.search import search_bp
+from app.routes.semantic_search import search_sem
 from app.routes.upload import upload_bp
+from app.routes.uploadSemantic import upload_sem
 from config import Config
 import os
 
@@ -18,15 +20,18 @@ os.makedirs(Config.UPLOAD_FOLDER, exist_ok=True)
 # Enregistrer les blueprints
 app.register_blueprint(search_bp, url_prefix='/api')
 app.register_blueprint(upload_bp, url_prefix='/api')
-
+app.register_blueprint(search_sem, url_prefix='/api')
+app.register_blueprint(upload_sem, url_prefix='/api')
 @app.route('/')
 def home():
     return {
         'message': 'API SRI - Moteur de recherche de bourses',
         'endpoints': {
             'indexation': '/api/index (POST)',
+            'indexationSemantic': '/api/index-Semantic (POST)',
             'statistiques': '/api/index/stats (GET)',
-            'recherche': '/api/search?q=<query> (GET)'
+            'recherche': '/api/search?q=<query> (GET)',
+            'recherche_semantique': '/api/semantic-search?q=<query> (GET)',
         }
     }
 

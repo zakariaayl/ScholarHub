@@ -36,6 +36,24 @@ class SearchResult:
             'preview': self.preview,
             'metadata': self.metadata
         }
+class SearchResultSemantic:
+    def __init__(self, doc_id, filename, score, preview):
+        self.doc_id = doc_id
+        self.filename = filename
+        self.score = score
+        self.preview = preview
+
+    def to_dict(self):
+        # Déboguer pour vérifier le type
+        if not isinstance(self, SearchResultSemantic):
+            raise TypeError(f"Expected SearchResult, got {type(self)}")
+        return {
+            'doc_id': self.doc_id,
+            'filename': self.filename,
+            'score': float(self.score),
+            'preview': self.preview
+        }
+
 
 class InvertedIndex:
     """Modèle pour l'inverted index"""
