@@ -1,0 +1,17 @@
+Pays: Portugal
+Domaine: Recherche, Science, Ingénierie
+Niveau: Master recherche / Doctorat
+Deadline: Variable
+
+Description:
+Bourses de recherche pour étudiants internationaux.
+
+Avantages:
+- Allocation
+- Soutien recherche
+- Assurance
+
+Conditions:
+- Projet validé par une institution portugaise
+
+Site: fct.pt

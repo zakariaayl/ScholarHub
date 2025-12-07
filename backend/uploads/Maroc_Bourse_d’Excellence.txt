@@ -1,0 +1,18 @@
+Pays: Maroc
+Domaine: Tous domaines
+Niveau: Licence / Master / Doctorat
+Deadline: Variable
+
+Description:
+Bourse d’excellence attribuée aux étudiants marocains méritants.
+
+Avantages:
+- Allocation mensuelle
+- Renouvelable
+- Priorité aux meilleurs dossiers
+
+Conditions:
+- Inscription dans un établissement reconnu
+- Bon dossier académique
+
+Site: enseignement.gov.ma
