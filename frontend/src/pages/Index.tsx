@@ -4,78 +4,30 @@ import SearchFilters, { FilterType } from "@/components/SearchFilters";
 import ResultCard, { SearchResult } from "@/components/ResultCard";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import EmptyState from "@/components/EmptyState";
+import FileViewer from "@/components/FileViewer";
 import { AnimatePresence } from "framer-motion";
 
-// Mock data generator - ready to be replaced with real API calls
-const generateMockResults = (query: string, filter: FilterType): SearchResult[] => {
-  const allResults: SearchResult[] = [
-    {
-      id: "1",
-      title: "Understanding React Hooks",
-      description: "A comprehensive guide to React Hooks including useState, useEffect, and custom hooks. Learn how to manage state and side effects in functional components.",
-      source: "Docs",
-      url: "#",
-    },
-    {
-      id: "2",
-      title: "TypeScript Best Practices",
-      description: "Essential TypeScript patterns and practices for building scalable applications. Covers type safety, generics, and advanced type patterns.",
-      source: "GitHub",
-      url: "#",
-    },
-    {
-      id: "3",
-      title: "Modern CSS Techniques",
-      description: "Explore modern CSS features like Grid, Flexbox, and CSS Variables. Learn how to create responsive layouts with minimal code.",
-      source: "Articles",
-      url: "#",
-    },
-    {
-      id: "4",
-      title: "Machine Learning Dataset",
-      description: "A curated collection of image classification datasets for training computer vision models. Includes 10,000+ labeled images.",
-      source: "Datasets",
-      url: "#",
-    },
-    {
-      id: "5",
-      title: "API Design Patterns",
-      description: "Best practices for designing RESTful APIs. Covers versioning, authentication, rate limiting, and error handling.",
-      source: "GitHub",
-      url: "#",
-    },
-    {
-      id: "6",
-      title: "Natural Language Processing Research",
-      description: "Latest research in NLP including transformer models, attention mechanisms, and large language models.",
-      source: "arXiv",
-      url: "#",
-    },
-  ];
+// API Configuration
+const API_BASE_URL = "http://localhost:5000/api";
 
-  if (!query) return [];
+// Backend response interface
+interface BackendSearchResult {
+  doc_id: number;
+  filename: string;
+  score: number;
+  preview: string;
+  metadata?: {
+    pays?: string;
+    domaine?: string;
+  };
+}
 
-  // Filter by type
-  let filtered = allResults;
-  if (filter !== "all") {
-    const sourceMap: Record<FilterType, string[]> = {
-      all: [],
-      code: ["GitHub", "Docs"],
-      articles: ["Articles", "arXiv"],
-      datasets: ["Datasets"],
-    };
-    filtered = allResults.filter((result) =>
-      sourceMap[filter]?.includes(result.source)
-    );
-  }
-
-  // Simple search filter
-  return filtered.filter(
-    (result) =>
-      result.title.toLowerCase().includes(query.toLowerCase()) ||
-      result.description.toLowerCase().includes(query.toLowerCase())
-  );
-};
+interface ApiResponse {
+  query: string;
+  filters: any;
+  count: number;
+  results: BackendSearchResult[];
+}
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -83,27 +35,83 @@ const Index = () => {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<BackendSearchResult | null>(null);
+
+  // Convert backend results to frontend SearchResult format
+  const convertToSearchResult = (backendResult: BackendSearchResult): SearchResult => {
+    return {
+      id: backendResult.doc_id.toString(),
+      title: backendResult.filename,
+      description: backendResult.preview,
+      source: backendResult.metadata?.domaine || "Document",
+      url: `${API_BASE_URL}/files/${backendResult.filename}`,
+      score: backendResult.score,
+      metadata: backendResult.metadata,
+    };
+  };
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
 
     setIsLoading(true);
     setHasSearched(true);
+    setError(null);
 
-    // Simulate API call with delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Determine endpoint based on filter
+      const endpoint = activeFilter === "datasets" 
+        ? "/semantic-search" 
+        : "/search";
+      
+      const response = await fetch(
+        `${API_BASE_URL}${endpoint}?q=${encodeURIComponent(searchQuery)}&top_k=10`
+      );
 
-    const mockResults = generateMockResults(searchQuery, activeFilter);
-    setResults(mockResults);
-    setIsLoading(false);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data: ApiResponse = await response.json();
+      
+      // Convert backend results to frontend format
+      const convertedResults = data.results.map(convertToSearchResult);
+      setResults(convertedResults);
+      
+    } catch (err: any) {
+      console.error("Search error:", err);
+      setError(err.message || "Failed to fetch results. Make sure the backend is running.");
+      setResults([]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleFilterChange = (filter: FilterType) => {
     setActiveFilter(filter);
-    if (hasSearched) {
-      const mockResults = generateMockResults(searchQuery, filter);
-      setResults(mockResults);
+    // Re-run search if user has already searched
+    if (hasSearched && searchQuery.trim()) {
+      // Small delay to allow state update
+      setTimeout(() => {
+        handleSearch();
+      }, 0);
     }
+  };
+
+  const handleOpenFile = (result: SearchResult) => {
+    // Convert back to backend format for FileViewer
+    const backendResult: BackendSearchResult = {
+      doc_id: parseInt(result.id),
+      filename: result.title,
+      score: result.score || 0,
+      preview: result.description,
+      metadata: result.metadata,
+    };
+    setSelectedFile(backendResult);
+  };
+
+  const handleCloseFile = () => {
+    setSelectedFile(null);
   };
 
   return (
@@ -115,7 +123,7 @@ const Index = () => {
             Search Engine
           </h1>
           <p className="text-muted-foreground text-lg">
-            Test interface for custom search functionality
+            Search through documents using TF-IDF or Semantic search
           </p>
         </div>
 
@@ -138,12 +146,21 @@ const Index = () => {
           <AnimatePresence mode="wait">
             {isLoading ? (
               <LoadingSpinner key="loading" />
+            ) : error ? (
+              <div key="error" className="text-center py-16">
+                <p className="text-destructive mb-2">Error: {error}</p>
+                <p className="text-muted-foreground text-sm">
+                  Make sure your Flask backend is running on {API_BASE_URL}
+                </p>
+              </div>
             ) : hasSearched && results.length === 0 ? (
               <EmptyState key="empty" />
             ) : results.length > 0 ? (
               <div key="results" className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {results.map((result, index) => (
-                  <ResultCard key={result.id} result={result} index={index} />
+                  <div key={result.id} onClick={() => handleOpenFile(result)}>
+                    <ResultCard result={result} index={index} />
+                  </div>
                 ))}
               </div>
             ) : (
@@ -156,17 +173,31 @@ const Index = () => {
           </AnimatePresence>
         </div>
 
-        {/* API Integration Note */}
+        {/* API Integration Status */}
         <div className="max-w-5xl mx-auto mt-12 p-6 bg-muted/50 rounded-lg border border-border">
-          <h3 className="font-semibold mb-2">Ready for Integration</h3>
+          <h3 className="font-semibold mb-2">Backend Connected</h3>
           <p className="text-sm text-muted-foreground">
-            This interface is modular and ready to connect to your real search API.
-            Replace the <code className="bg-background px-2 py-1 rounded">generateMockResults</code> function
-            with a call to your backend endpoint like{" "}
-            <code className="bg-background px-2 py-1 rounded">/api/search?q=query</code>
+            Connected to Flask backend at{" "}
+            <code className="bg-background px-2 py-1 rounded">{API_BASE_URL}</code>
           </p>
+          {hasSearched && (
+            <p className="text-sm text-muted-foreground mt-2">
+              Results found: <strong>{results.length}</strong> for query "{searchQuery}"
+            </p>
+          )}
         </div>
       </div>
+
+      {/* File Viewer Overlay */}
+      <AnimatePresence>
+        {selectedFile && (
+          <FileViewer 
+            file={selectedFile} 
+            onClose={handleCloseFile}
+            apiBaseUrl={API_BASE_URL}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

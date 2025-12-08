@@ -1,4 +1,9 @@
-/backend/__pycache__
-/backend/venv
-/backend/app/__pycache__
-SearchHub/backend/config.py
+__pycache__/ 
+*.pyc 
+*.pyo 
+*.pyd 
+venv/ 
+.env 
+uploads/ 
+node_modules/ 
+dist/

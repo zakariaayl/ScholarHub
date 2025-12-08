@@ -179,7 +179,7 @@ class TFIDFIndexer:
         sorted_terms = sorted(term_counts.items(), key=lambda x: x[1], reverse=True)
         return sorted_terms[:n]
     
-    def save_to_json(self, filepath='C:/Users/ayoug/Myprojects/ScholarHub/backend/uploads/data/inverted_index.json'):
+    def save_to_json(self, filepath='./uploads/data/inverted_index.json'):
         """Sauvegarde l'index en JSON"""
         data = {
             'inverted_index': {

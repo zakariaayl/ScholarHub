@@ -7,11 +7,11 @@ interface SearchFiltersProps {
   onFilterChange: (filter: FilterType) => void;
 }
 
-const filters: { value: FilterType; label: string }[] = [
-  { value: "all", label: "All" },
-  { value: "code", label: "Code" },
-  { value: "articles", label: "Articles" },
-  { value: "datasets", label: "Datasets" },
+const filters: { value: FilterType; label: string; description: string }[] = [
+  { value: "all", label: "All", description: "Search all documents" },
+  { value: "code", label: "TF-IDF", description: "Traditional keyword matching" },
+  { value: "articles", label: "Articles", description: "Article documents" },
+  { value: "datasets", label: "Semantic", description: "AI-powered semantic search" },
 ];
 
 const SearchFilters = ({ activeFilter, onFilterChange }: SearchFiltersProps) => {
@@ -28,6 +28,7 @@ const SearchFilters = ({ activeFilter, onFilterChange }: SearchFiltersProps) => 
           }`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          title={filter.description}
         >
           {filter.label}
         </motion.button>

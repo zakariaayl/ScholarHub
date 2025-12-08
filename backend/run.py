@@ -34,6 +34,14 @@ def home():
             'recherche_semantique': '/api/semantic-search?q=<query> (GET)',
         }
     }
+from flask import send_from_directory
 
+@app.route('/api/files/<path:filename>', methods=['GET'])
+def get_file(filename):
+    """Serve file content"""
+    try:
+        return send_from_directory(Config.UPLOAD_FOLDER, filename)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 404
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

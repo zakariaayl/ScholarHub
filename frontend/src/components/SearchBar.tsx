@@ -10,34 +10,36 @@ interface SearchBarProps {
 }
 
 const SearchBar = ({ value, onChange, onSearch, isLoading }: SearchBarProps) => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch();
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !isLoading) {
+      onSearch();
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-3xl">
+    <div className="w-full max-w-3xl">
       <div className="relative flex items-center gap-2">
         <div className="relative flex-1">
           <Input
             type="text"
-            placeholder="Search documents, code, or keywords…"
+            placeholder="Search documents, scholarships, or keywords…"
             value={value}
             onChange={(e) => onChange(e.target.value)}
+            onKeyPress={handleKeyPress}
             className="pr-4 pl-4 py-6 text-lg bg-card border-2 border-border focus:border-primary transition-all duration-200 focus:ring-4 focus:ring-primary/20"
             disabled={isLoading}
           />
         </div>
         <Button
-          type="submit"
+          onClick={onSearch}
           size="lg"
-          disabled={isLoading}
+          disabled={isLoading || !value.trim()}
           className="px-6 py-6 bg-primary hover:bg-primary/90 transition-all duration-200 hover:scale-105"
         >
           <Search className="h-5 w-5" />
         </Button>
       </div>
-    </form>
+    </div>
   );
 };
 
