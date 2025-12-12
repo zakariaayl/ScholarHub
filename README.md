@@ -108,14 +108,8 @@ Nous t’aiderons à la trouver.”
 + 🤝 Matching Étudiant–Bourse
   L’algorithme qui vous présente *la bourse qui vous attendait*.
 
-+ 📊 Visibilité et Statistiques Transparentes
-  Suivez les tendances, les taux d’acceptation, et trouvez votre voie stratégiquement.
-
 + 🧭 Guidance Académique Émotionnelle
   Une technologie qui ressent vos objectifs et vous guide comme un mentor.
-
-+ 💼 Ressources pour Préparer Vos Dossiers
-  CV, lettres de motivation, recommandations : maîtrisez tout avec clarté.
 
 + 🔒 Sécurité & Fiabilité Renforcées
   Chaque opportunité vérifiée, chaque information authentifiée.
