@@ -37,13 +37,13 @@
 Il est 2h47 du matin.
 À Marrakech, une étudiante cherche une bourse pour poursuivre ses études en ingénierie, mais se perd dans des sites contradictoires.
 À Lyon, un jeune marocain veut décrocher un master en Europe, mais ne sait pas par où commencer.
-À Agadir, un lycéen brillant n’ose même pas chercher — convaincu que les bourses ne sont “pas pour lui”.
+À Agadir, un lycéen brillant n’ose même pas chercher - convaincu que les bourses ne sont “pas pour lui”.
 
 Trois rêves. Trois destins suspendus.
 
 C’est là que ScholarHub est né.
 Pas d’une entreprise. Pas d’une stratégie marketing.
-Mais d’un besoin viscéral : donner à chaque étudiant une vraie chance — simple, claire, humaine.
+Mais d’un besoin viscéral : donner à chaque étudiant une vraie chance - simple, claire, humaine.
 
 Parce qu’une bourse, parfois,
 ce n’est pas juste de l’argent.
@@ -247,49 +247,30 @@ graph TB
 ```
 
 </div>
-
 ---
-
-<details>
-<summary><h2>📸 UI Showcase : La Beauté en Action</h2></summary>
-
-<br/>
+## 🧪 Évaluation du Système de Recherche
 
 <div align="center">
 
-### 🏠 Homepage : Votre Portail vers l'Infini
+**Notre moteur de recherche a été testé avec des requêtes réelles, et voici les résultats :**
 
-<img src="https://via.placeholder.com/800x450/667eea/ffffff?text=ScholarHub+Homepage+✨" width="100%"/>
+| Requête | Précision | Rappel | F1-Score |
+|---------|-----------|--------|----------|
+| "intelligence artificielle France" | 100% | 100% | 1.0000 |
+| "master data science Europe"       | 60%  | 100% | 0.7500 |
+| "bourse doctorat"                  | 60%  | 100% | 0.7500 |
+| "Allemagne ingénierie"             | 100% | 100% | 1.0000 |
+| "États-Unis programme Fulbright"  | 20%  | 100% | 0.3333 |
 
-*Un design qui respire. Des animations qui enchantent. Une expérience qui inspire.*
+**Moyennes globales :**
 
----
+- **Précision moyenne :** 68%  
+- **Rappel moyen :** 100%  
+- **F1-Score moyen :** 0.7667  
 
-### 👤 Profil : Votre Histoire, Votre Impact
-
-<img src="https://via.placeholder.com/800x450/764ba2/ffffff?text=Scholar+Profile+💫" width="100%"/>
-
-*Plus qu'un CV. C'est votre legacy académique.*
-
----
-
-### 🔍 Discovery Feed : L'Algorithme qui Comprend
-
-<img src="https://via.placeholder.com/800x450/f093fb/ffffff?text=Discovery+Feed+🚀" width="100%"/>
-
-*Chaque recherche est personnalisée. Chaque recommandation, pertinente.*
-
----
-
-### 🤝 Collaboration Hub : Où les Équipes Naissent
-
-<img src="https://via.placeholder.com/800x450/4facfe/ffffff?text=Collaboration+Space+🌟" width="100%"/>
-
-*Des outils qui transforment les idées en projets, les projets en impact.*
+> Le rapport complet est disponible dans `uploads/data/evaluation_report.json`
 
 </div>
-
-</details>
 
 ---
 
@@ -387,7 +368,7 @@ Chaque ligne de code porte notre passion. Chaque feature raconte notre vision.
 
 ## 🤝 Contribuer : Rejoignez le Mouvement
 
-Chez ScholarHub, **chaque contribution compte**. Que vous soyez développeur, designer, rédacteur ou simplement quelqu'un avec une idée brillante — **nous vous voulons**.
+Chez ScholarHub, **chaque contribution compte**. Que vous soyez développeur, designer, rédacteur ou simplement quelqu'un avec une idée brillante - **nous vous voulons**.
 
 <div align="center">
 
@@ -509,13 +490,6 @@ timeline
 </div>
 
 
-### 📈 Croissance qui Inspire
-
-<img src="https://via.placeholder.com/800x300/667eea/ffffff?text=Growth+Chart+📊+Exponential+Journey" width="100%"/>
-
-</div>
-
-
 ---
 
 ## 📜 Licence & Mentions Légales
@@ -611,6 +585,6 @@ copies of the Software...
 
 <br/>
 
-© 2024 ScholarHub — **Where Knowledge Meets Community** ✨
+© 2024 ScholarHub - **Where Knowledge Meets Community** ✨
 
 </div>
