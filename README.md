@@ -72,7 +72,7 @@ Notre solution offre :
     └──────┬───────┘             └──────┬───────┘
            │                            │
            │ Résultats 1-5             │ Résultats 1-5
-           │ Précision: 14-50%         │ Précision: 70-95%
+           │ Précision: 60-70%         │ Précision: 70-95%
            │                            │
            └──────────────┬─────────────┘
                           ▼
