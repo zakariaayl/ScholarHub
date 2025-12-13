@@ -31,7 +31,7 @@
 Ce projet vise à **résoudre le problème d'accessibilité** aux bourses universitaires internationales. Les étudiants perdent du temps à naviguer entre différents portails et sources d'information dispersées.
 
 Notre solution offre :
-- ✅ Un **index centralisé** de 50+ bourses internationales
+- ✅ Un **index centralisé** de 50 bourses internationales
 - ✅ Deux **moteurs de recherche complémentaires**
 - ✅ Une **interface utilisateur intuitive**
 - ✅ Des **résultats précis et contextualisés**
