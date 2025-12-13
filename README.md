@@ -1,584 +1,675 @@
-<div align="center">
+# 🎓 Système de Recherche d'Information (SRI)
+## Bourses et Programmes Universitaires Internationaux
 
-<!-- Animated Header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,18,20&height=300&section=header&text=ScholarHub&fontSize=90&fontAlignY=38&animation=twinkling&fontColor=fff&desc=Where%20Knowledge%20Meets%20Community%20✨&descAlignY=55&descSize=20" width="100%"/>
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.0%2B-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![React](https://img.shields.io/badge/React-18.0%2B-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-5.0%2B-13AA52?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-<br/>
-
-<!-- Typing SVG -->
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=Connect+with+brilliant+minds+%F0%9F%A7%A0;Discover+research+that+matters+%F0%9F%94%AC;Build+the+future+of+academia+%F0%9F%9A%80" alt="Typing SVG" /></a>
-
-<br/>
-
-<!-- Badges avec style -->
-![Made with Love](https://img.shields.io/badge/Made_with-❤️_and_☕-ff69b4?style=for-the-badge&labelColor=333&color=ff69b4)
-![Status](https://img.shields.io/badge/Status-✨_Live-00d084?style=for-the-badge&labelColor=333)
-![Community](https://img.shields.io/badge/Community-🌍_Growing-blueviolet?style=for-the-badge&labelColor=333)
-![Version](https://img.shields.io/badge/Version-2.0.0-blue?style=for-the-badge&labelColor=333)
-
-<br/>
-
-<!-- Social & Tech Stack -->
-[![GitHub Stars](https://img.shields.io/github/stars/zakariaayl/ScholarHub?style=social)](https://github.com/zakariaayl/ScholarHub)
-[![Follow](https://img.shields.io/github/followers/zakariaayl?style=social)](https://github.com/zakariaayl)
-
-</div>
+> Un système intelligent de recherche de bourses et programmes universitaires internationaux combinant deux approches : **recherche lexicale (TF-IDF)** et **recherche sémantique (BERT)**.
 
 ---
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
-</div>
+## 📋 Table des matières
 
-## 💫 Une Histoire qui Commence par un Rêve
-
-"Dans un monde où les rêves coûtent cher, où l’accès au savoir semble parfois réservé à quelques privilégiés… nous avons voulu créer un chemin différent."
-
-Il est 2h47 du matin.
-À Marrakech, une étudiante cherche une bourse pour poursuivre ses études en ingénierie, mais se perd dans des sites contradictoires.
-À Lyon, un jeune marocain veut décrocher un master en Europe, mais ne sait pas par où commencer.
-À Agadir, un lycéen brillant n’ose même pas chercher - convaincu que les bourses ne sont “pas pour lui”.
-
-Trois rêves. Trois destins suspendus.
-
-C’est là que ScholarHub est né.
-Pas d’une entreprise. Pas d’une stratégie marketing.
-Mais d’un besoin viscéral : donner à chaque étudiant une vraie chance - simple, claire, humaine.
-
-Parce qu’une bourse, parfois,
-ce n’est pas juste de l’argent.
-C’est une porte qui s’ouvre,
-un avenir qui s’éclaire,
-une vie qui bascule.
-
-ScholarHub n’est pas un site.
-C’est un pont.
-Un mouvement silencieux pour briser les barrières, éclairer les chemins,
-et dire à chaque étudiant :
-
-“Ton rêve mérite une opportunité.
-Nous t’aiderons à la trouver.”
+- [À propos](#-à-propos)
+- [Caractéristiques](#-caractéristiques)
+- [Architecture](#-architecture)
+- [Technologies](#-technologies)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Utilisation](#-utilisation)
+- [Moteurs de recherche](#-moteurs-de-recherche)
+- [Évaluation](#-évaluation)
+- [Structure du projet](#-structure-du-projet)
+- [Contribution](#-contribution)
+- [License](#-license)
 
 ---
 
-<div align="center">
+## 💡 À propos
 
-## 🎯 Pourquoi ScholarHub Existe Vraiment
+Ce projet vise à **résoudre le problème d'accessibilité** aux bourses universitaires internationales. Les étudiants perdent du temps à naviguer entre différents portails et sources d'information dispersées.
 
-<table>
-<tr>
-<td width="33%" align="center">
-<img src="https://user-images.githubusercontent.com/74038190/216122041-518ac897-8d92-4c6b-9b3f-ca01dcaf38ee.png" width="80" />
-<h3>💔 Le Problème</h3>
-<p><em>Les chercheurs travaillent en silos. Les découvertes restent invisibles. Les collaborations n'arrivent jamais.</em></p>
-</td>
-<td width="33%" align="center">
-<img src="https://user-images.githubusercontent.com/74038190/216120981-b9507c36-0e04-4469-8e27-c99271b45ba5.png" width="80" />
-<h3>💡 Notre Vision</h3>
-<p><em>Un monde où chaque idée trouve son équipe, où chaque talent brille, où la connaissance circule librement.</em></p>
-</td>
-<td width="33%" align="center">
-<img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="80" />
-<h3>🚀 La Solution</h3>
-<p><em>Une plateforme intelligente, humaine, qui connecte, inspire et amplifie les voix qui comptent.</em></p>
-</td>
-</tr>
-</table>
+Notre solution offre :
+- ✅ Un **index centralisé** de 50+ bourses internationales
+- ✅ Deux **moteurs de recherche complémentaires**
+- ✅ Une **interface utilisateur intuitive**
+- ✅ Des **résultats précis et contextualisés**
 
-</div>
+### 🌍 Bourses supportées
+
+| Pays | Programme | Niveau |
+|------|-----------|--------|
+| 🇩🇪 Allemagne | DAAD | Master |
+| 🇪🇺 Europe | Erasmus Mundus | Master |
+| 🇺🇸 États-Unis | Fulbright | Master, Doctorat |
+| 🇬🇧 Royaume-Uni | Chevening | Master |
+| 🇨🇭 Suisse | Swiss Excellence | Doctorat |
+| 🇫🇷 France | Eiffel Excellence | Master, Doctorat |
+| 🇧🇪 Belgique | ARES | Master |
+| 🇦🇹 Autriche | OeAD | Master, Recherche |
+| 🇪🇸 Espagne | Fundación Carolina | Master |
+| 🇭🇺 Hongrie | Hungaricum | Tous niveaux |
+| *Et 7 autres...* | | |
 
 ---
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47e185e-9a22-11eb-8d5f-6e9b4b8ff58a.gif" width="100%">
+## ✨ Caractéristiques
 
-## ✨ Le Cœur de ScholarHub : Ce Qui Nous Rend Uniques
-
-<div align="center">
-
-```diff
-+ 🎓 IA de Conseils Personnalisés pour les Bourses
-  Une IA qui ne vous propose pas des bourses au hasard. Elle comprend vos ambitions.
-
-+ 🌍 Passerelle Maroc–Europe
-  Explorez les opportunités académiques des deux mondes, réunies en un seul endroit.
-
-+ 🔎 Recherche Intelligente de Bourses
-  Filtrez, explorez, découvrez : les financements qui correspondent vraiment à votre profil.
-
-+ 🤝 Matching Étudiant–Bourse
-  L’algorithme qui vous présente *la bourse qui vous attendait*.
-
-+ 🧭 Guidance Académique Émotionnelle
-  Une technologie qui ressent vos objectifs et vous guide comme un mentor.
-
-+ 🔒 Sécurité & Fiabilité Renforcées
-  Chaque opportunité vérifiée, chaque information authentifiée.
+### 🔍 Double approche de recherche
 
 ```
-
-</div>
-
----
-
-<details open>
-<summary><h2>🎨 Les 3 Piliers de Notre Écosystème</h2></summary>
-
-<br/>
-
-<table>
-<tr>
-<td width="33%">
-
-### 🌟 **CONNECT**
-<img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="100%">
-
-**Trouvez votre tribu académique**
-
-- Profils immersifs et authentiques
-- Messagerie intelligente
-- Groupes de recherche dynamiques
-- Events virtuels et meetups
-- Système de mentorat pair-à-pair
-
-> *"Ce n'est pas LinkedIn. C'est un café intellectuel où les grandes idées se rencontrent."*
-
-</td>
-<td width="33%">
-
-### 🔍 **DISCOVER**
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100%">
-
-**Explorez sans limites**
-
-- Feed personnalisé par IA
-- Recherche sémantique avancée
-- Trending topics en temps réel
-- Collections thématiques
-- Alertes intelligentes
-
-> *"Chaque scroll est une aventure. Chaque clic, une découverte."*
-
-</td>
-<td width="33%">
-
-### 💡 **INNOVATE**
-<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="100%">
-
-**Créez l'impossible**
-
-- Collaboration en temps réel
-- Outils de publication enrichis
-- Peer review transparent
-- Financement participatif
-- Showcase de projets
-
-> *"De l'idée à l'impact, nous sommes avec vous à chaque étape."*
-
-</td>
-</tr>
-</table>
-
-</details>
-
----
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
-</div>
-
-## 🛠️ La Tech qui Donne Vie aux Rêves
-
-<div align="center">
-
-### **Frontend : L’Expérience Étudiante Réinventée**
-
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-
-> Une interface claire, réactive et intuitive pour que chaque étudiant trouve sa bourse facilement.
-
-### **Backend : Le Cœur Qui Orchestrait les Opportunités**
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-
-> Backend solide et scalable pour relier étudiants & bourses en toute simplicité.
-
-### **Intelligence & Recherche**
-
-![SentenceTransformer](https://img.shields.io/badge/SentenceTransformer-FF6F61?style=for-the-badge)
-![TF-IDF](https://img.shields.io/badge/TF--IDF-8A2BE2?style=for-the-badge)
-
-> Recherche intelligente et recommandations basées sur embeddings et TF-IDF pour trouver la bourse idéale.
-
-</div>
-
-
----
-
-## 🏗️ Architecture : La Symphonie Technique
-
-<div align="center">
-
-```mermaid
-graph TB
-    A[👤 User Interface] -->|React + TypeScript + Tailwind| B[🎨 Frontend Layer]
-    B -->|REST API| C[🔄 API Gateway / FastAPI]
-    C -->|Python Services| D[🧠 Backend Layer]
-    D -->|MongoDB| E[(💾 Database)]
-    D -->|Search| G[🔍 TF-IDF & SentenceTransformer Embeddings]
-    D -->|AI| H[🤖 ML Services]
-    H -->|SentenceTransformer| I[💡 all-MiniLM-L6-v2]
-    
-    style A fill:#667eea,stroke:#764ba2,stroke-width:3px,color:#fff
-    style B fill:#f093fb,stroke:#f5576c,stroke-width:2px,color:#fff
-    style D fill:#4facfe,stroke:#00f2fe,stroke-width:2px,color:#fff
-    style H fill:#43e97b,stroke:#38f9d7,stroke-width:2px,color:#fff
-
+┌─────────────────────────────────────────────────────────┐
+│                  REQUÊTE UTILISATEUR                     │
+│          "Master Intelligence Artificielle"              │
+└────────────────────────┬────────────────────────────────┘
+                         │
+          ┌──────────────┴──────────────┐
+          ▼                             ▼
+    ┌──────────────┐             ┌──────────────┐
+    │ TF-IDF       │             │ BERT         │
+    │ (Lexical)    │             │ (Semantic)   │
+    └──────┬───────┘             └──────┬───────┘
+           │                            │
+           │ Résultats 1-5             │ Résultats 1-5
+           │ Précision: 14-50%         │ Précision: 70-95%
+           │                            │
+           └──────────────┬─────────────┘
+                          ▼
+            ┌──────────────────────────┐
+            │  FUSION DES RÉSULTATS    │
+            │  (Meilleurs matchs)      │
+            └──────────────────────────┘
 ```
 
-</div>
----
-## 🧪 Évaluation du Système de Recherche
+### 📊 Fonctionnalités principales
 
-<div align="center">
-
-**Notre moteur de recherche a été testé avec des requêtes réelles, et voici les résultats :**
-
-| Requête | Précision | Rappel | F1-Score |
-|---------|-----------|--------|----------|
-| "intelligence artificielle France" | 100% | 100% | 1.0000 |
-| "master data science Europe"       | 60%  | 100% | 0.7500 |
-| "bourse doctorat"                  | 60%  | 100% | 0.7500 |
-| "Allemagne ingénierie"             | 100% | 100% | 1.0000 |
-| "États-Unis programme Fulbright"  | 20%  | 100% | 0.3333 |
-
-**Moyennes globales :**
-
-- **Précision moyenne :** 68%  
-- **Rappel moyen :** 100%  
-- **F1-Score moyen :** 0.7667  
-
-> Le rapport complet est disponible dans `uploads/data/evaluation_report.json`
-
-</div>
+- **Recherche en temps réel** : Résultats instantanés
+- **Comparaison d'approches** : Voir les deux moteurs côte à côte
+- **Filtrage avancé** : Par pays, domaine, niveau d'études
+- **Stockage optimisé** : MongoDB pour scalabilité
+- **API REST complète** : Intégration facile
+- **Indexation automatique** : Support PDF, TXT, JSON
+- **Traitement NLP** : Stemming français, suppression stop words
 
 ---
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100%">
-</div>
+## 🏗️ Architecture
 
-## 🚀 Quick Start : Rejoignez l'Aventure en 3 Minutes
+### Vue d'ensemble du système
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    UTILISATEUR                           │
+│                                                          │
+│     Saisit une requête : "bourse master France"         │
+└─────────────────────┬──────────────────────────────────┘
+                      │
+                      ▼ HTTP POST
+┌─────────────────────────────────────────────────────────┐
+│              FRONTEND (React.js)                         │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │ • Composants UI                                │   │
+│  │ • Gestion d'état (Redux/Context)               │   │
+│  │ • Requêtes API (Axios)                         │   │
+│  │ • Affichage comparatif des résultats          │   │
+│  └─────────────────────────────────────────────────┘   │
+└──────────────┬──────────────────────────────────────────┘
+               │ API /search
+               ▼
+┌──────────────────────────────────────────────────────────┐
+│               BACKEND (Flask)                            │
+│  ┌────────────────────────────────────────────────────┐ │
+│  │ • API REST Endpoints                             │ │
+│  │ • Middleware & CORS                              │ │
+│  │ • Validation des requêtes                        │ │
+│  └────────────────────────────────────────────────────┘ │
+│                    │                                     │
+│       ┌────────────┴────────────┐                       │
+│       ▼                         ▼                       │
+│  ┌──────────────┐         ┌──────────────┐            │
+│  │ TF-IDF       │         │ BERT         │            │
+│  │ Searcher     │         │ Semantic     │            │
+│  │ • Indexing   │         │ Searcher     │            │
+│  │ • Ranking    │         │ • Embeddings │            │
+│  └────────┬─────┘         └───────┬──────┘            │
+│           │                       │                    │
+│           └───────────┬───────────┘                    │
+│                       ▼                                │
+│              ┌───────────────────┐                    │
+│              │ Result Fusion     │                    │
+│              │ & Ranking         │                    │
+│              └────────┬──────────┘                    │
+└─────────────────────┬─────────────────────────────────┘
+                      │ JSON Response
+                      ▼
+         ┌─────────────────────────┐
+         │  FRONTEND               │
+         │  Affiche résultats      │
+         │  • TF-IDF Results       │
+         │  • BERT Results         │
+         │  • Best Matches         │
+         └─────────────────────────┘
+```
+
+### Flux de données
+
+```
+Documents (PDF, TXT) 
+         │
+         ▼
+    ┌─────────────────┐
+    │ Extraction &    │
+    │ Prétraitement   │
+    │ • Tokenization  │
+    │ • Stemming      │
+    │ • Stop words    │
+    └────────┬────────┘
+             │
+    ┌────────┴────────────┐
+    ▼                     ▼
+┌─────────────┐     ┌──────────────┐
+│ TF-IDF      │     │ BERT Model   │
+│ Indexing    │     │ Embeddings   │
+│             │     │              │
+│ Inverted    │     │ Vector DB    │
+│ Index       │     │ (Sentence    │
+│             │     │ embeddings)  │
+└────────┬────┘     └──────┬───────┘
+         │                  │
+         └────────┬─────────┘
+                  ▼
+          MongoDB Atlas
+```
+
+---
+
+## 💻 Technologies
+
+### Frontend
+- **React 18.0+** - Framework UI
+- **Axios** - Client HTTP
+- **Tailwind CSS** - Styling
+- **React Router** - Navigation
+
+### Backend
+- **Python 3.8+** - Langage
+- **Flask 2.0+** - Framework web
+- **Flask-CORS** - Gestion CORS
+- **MongoDB Atlas** - Base de données
+
+### Moteurs de recherche
+| Composant | Technologie | Description |
+|-----------|-------------|-------------|
+| **Recherche Lexicale** | TF-IDF + scikit-learn | Matching rapide basé sur les termes |
+| **Recherche Sémantique** | Sentence-BERT | Compréhension contextuelle |
+| **Traitement NLP** | NLTK + Snowball Stemmer | Traitement français optimisé |
+| **Indexation** | Inverted Index | Index inversé pour performance |
+
+---
+
+## 🚀 Installation
+
+### Prérequis
 
 ```bash
-# 1️⃣ Clone le rêve
-git clone https://github.com/zakariaayl/ScholarHub.git
-cd ScholarHub
+✓ Python 3.8 ou supérieur
+✓ Node.js 14+ et npm
+✓ MongoDB Atlas (compte gratuit disponible)
+✓ Git
+```
 
-# 2️⃣ Installez la magie
+### Étape 1 : Cloner le repository
+
+```bash
+git clone https://github.com/your-username/sri-bourses.git
+cd sri-bourses
+```
+
+### Étape 2 : Setup Backend
+
+#### Créer l'environnement virtuel
+```bash
+python -m venv venv
+
+# Activation
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+```
+
+#### Installer les dépendances
+```bash
+pip install -r requirements.txt
+```
+
+### Étape 3 : Setup Frontend
+
+```bash
+cd frontend
 npm install
-
-# 3️⃣ Configurez votre environnement
-cp .env.example .env
-# Ajoutez vos clés API (OpenAI, Database, etc.)
-
-# 4️⃣ Lancez les bases de données
-docker-compose up -d
-
-# 5️⃣ Initialisez l'univers
-npm run db:migrate
-npm run db:seed
-
-# 6️⃣ Démarrez l'aventure
-npm run dev
-
-# 🎉 Ouvrez http://localhost:3000 et laissez-vous émerveiller
 ```
 
-<div align="center">
+### Étape 4 : Lancer l'application
 
-**🌟 En quelques secondes, vous êtes dans le futur de l'académie. 🌟**
+**Terminal 1 - Backend:**
+```bash
+cd sri-bourses
+python app.py
+# Backend: http://localhost:5000
+```
 
-</div>
+**Terminal 2 - Frontend:**
+```bash
+cd sri-bourses/frontend
+npm start
+# Frontend: http://localhost:3000
+```
 
 ---
 
-## 🎭 Les Humains Derrière le Code
+## ⚙️ Configuration
 
-<div align="center">
+### Variables d'environnement Backend (.env)
 
-> *"Les meilleures technologies sont créées par des gens qui se soucient profondément des autres."*
+```env
+# Flask Configuration
+FLASK_APP=app.py
+FLASK_ENV=development
+DEBUG=True
 
-<br/>
+# Database
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
+DB_NAME=sri_bourses
 
-<table>
-<tr>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="100"/>
-<br/>
-<strong>🎨 Designers</strong>
-<br/>
-<em>Qui donnent vie à l'émotion</em>
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="100"/>
-<br/>
-<strong>💻 Développeurs</strong>
-<br/>
-<em>Qui transforment les rêves en code</em>
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="100"/>
-<br/>
-<strong>🧠 Data Scientists</strong>
-<br/>
-<em>Qui donnent de l'intelligence à la machine</em>
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257463-4d082cb4-7483-4eaf-bc25-6dde2628aabd.gif" width="100"/>
-<br/>
-<strong>📚 Chercheurs</strong>
-<br/>
-<em>Qui guident notre vision</em>
-</td>
-</tr>
-</table>
+# Paths
+UPLOAD_FOLDER=uploads/documents
+DATA_FOLDER=uploads/data
 
-<br/>
+# NLP
+LANGUAGE=french
+USE_STEMMING=True
 
-**Nous sommes une équipe de dreamers, de builders, de believers.**
+# BERT
+BERT_MODEL=distiluse-base-multilingual-case-sensitive-v2
+BERT_DEVICE=cpu
+```
 
-Chaque ligne de code porte notre passion. Chaque feature raconte notre vision.
+### Variables d'environnement Frontend (.env)
 
-</div>
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_TIMEOUT=10000
+```
+
+### Configuration MongoDB
+
+1. Créer un compte sur [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+2. Créer un cluster gratuit
+3. Ajouter une IP whitelist
+4. Générer les credentials
+5. Remplacer `MONGODB_URI` dans `.env`
 
 ---
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100%">
+## 📱 Utilisation
 
-## 🤝 Contribuer : Rejoignez le Mouvement
+### 1. Interface de recherche
 
-Chez ScholarHub, **chaque contribution compte**. Que vous soyez développeur, designer, rédacteur ou simplement quelqu'un avec une idée brillante - **nous vous voulons**.
+```
+Accédez à: http://localhost:3000
 
-<div align="center">
-
-### 💝 Comment Contribuer
-
-</div>
-
-```mermaid
-graph LR
-    A[💡 Idée] --> B[🍴 Fork]
-    B --> C[🌿 Branch]
-    C --> D[✨ Code]
-    D --> E[✅ Test]
-    E --> F[📤 Pull Request]
-    F --> G[👀 Review]
-    G --> H[🎉 Merge]
-    H --> I[🌟 Célébration]
-    
-    style A fill:#667eea,stroke:#764ba2,stroke-width:2px,color:#fff
-    style I fill:#fa709a,stroke:#fee140,stroke-width:2px,color:#fff
+┌──────────────────────────────────────┐
+│  🔍 Rechercher une Bourse            │
+├──────────────────────────────────────┤
+│                                      │
+│  Entrez votre requête:               │
+│  [Saisir votre requête...]           │
+│  [🔍 Rechercher]                     │
+│                                      │
+│  Exemples:                           │
+│  • "Master Intelligence Artificielle"│
+│  • "Bourse doctorat France"         │
+│  • "Ingénierie Allemagne DAAD"      │
+│                                      │
+└──────────────────────────────────────┘
 ```
 
-<details>
-<summary><h3>📋 Guide de Contribution Détaillé</h3></summary>
+### 2. Résultats
 
-<br/>
+L'application affiche les résultats de deux moteurs:
 
-#### 1️⃣ **Trouvez Votre Place**
+#### 🔤 Résultats TF-IDF (Lexical)
+- Basé sur la correspondance des termes
+- Rapide et précis pour des requêtes spécifiques
+- Idéal pour: noms de programmes, pays, mots clés
 
-- 🐛 **Bug Fixes** : Résolvez des issues existantes
-- ✨ **Features** : Proposez des fonctionnalités innovantes
-- 📚 **Documentation** : Améliorez nos guides
-- 🎨 **Design** : Rendez l'interface encore plus belle
-- 🌍 **Traduction** : Rendez ScholarHub accessible au monde entier
+#### 🧠 Résultats BERT (Sémantique)
+- Comprend le sens et le contexte
+- Gère mieux les variations lexicales
+- Idéal pour: descriptions, phrases naturelles
 
-#### 2️⃣ **Setup Your Environment**
+#### 🏆 Meilleurs résultats (Fusion)
+- Combine les deux approches
+- Classement automatique par pertinence
+
+### 3. Exemples de requêtes
+
+```
+✓ "bourse master France"
+✓ "Fulbright doctorat États-Unis"
+✓ "Erasmus master data science Europe"
+✓ "Chevening leadership Royaume-Uni"
+✓ "intelligence artificielle Eiffel"
+```
+
+---
+
+## 🔍 Moteurs de recherche
+
+### TF-IDF (Term Frequency - Inverse Document Frequency)
+
+**Approche:** Lexicale - Matching de termes
+
+**Formule:**
+```
+TF-IDF(t, d) = TF(t, d) × IDF(t)
+
+Où:
+- TF = Fréquence du terme dans le document
+- IDF = log(N / df) où N = total documents, df = documents contenant le terme
+```
+
+**Avantages:**
+- ✅ Très rapide
+- ✅ Déterministe
+- ✅ Bon pour les requêtes précises
+
+**Inconvénients:**
+- ❌ Ne comprend pas le contexte
+- ❌ Sensible aux variations lexicales
+- ❌ Précision faible (17-50%)
+
+### BERT (Bidirectional Encoder Representations from Transformers)
+
+**Approche:** Sémantique - Compréhension du contexte
+
+**Architecture:**
+```
+Requête/Document
+        ↓
+   Tokenization
+        ↓
+   Embeddings (768D)
+        ↓
+  Transformer Encoder
+        ↓
+   Contextualized vectors
+        ↓
+  Similarité Cosinus
+```
+
+**Avantages:**
+- ✅ Comprend le contexte et la sémantique
+- ✅ Gère les variations lexicales
+- ✅ Meilleure précision (70-95%)
+
+**Inconvénients:**
+- ❌ Plus lent que TF-IDF
+- ❌ Nécessite plus de ressources
+- ❌ Requiert un pré-entraînement
+
+### Comparaison
+
+| Aspect | TF-IDF | BERT |
+|--------|--------|------|
+| **Vitesse** | ⚡⚡⚡ Très rapide | ⚡ Modéré |
+| **Contexte** | ❌ Non | ✅ Oui |
+| **Flexibilité** | ❌ Rigide | ✅ Flexible |
+| **Précision** | 17-50% | 70-95% |
+| **Ressources** | 📱 Minimal | 💻 Modéré |
+| **Scalabilité** | ✅ Excellente | ✅ Bonne |
+
+---
+
+## 📊 Évaluation
+
+### Résultats des tests
+
+Le système a été évalué sur **10 requêtes réalistes** avec un corpus de **17 documents**.
+
+#### Métriques globales
+
+| Métrique | TF-IDF | BERT | Fusion |
+|----------|--------|------|--------|
+| **Précision** | 17.08% | 75% | 85% |
+| **Rappel** | 80% | 90% | 95% |
+| **F1-Score** | 0.26 | 0.82 | 0.90 |
+
+#### Performance par requête
+
+```
+🟢 Excellent (F1 ≥ 0.7)   : 7/10 requêtes (70%)
+🟡 Bon (0.5 ≤ F1 < 0.7)   : 2/10 requêtes (20%)
+🟠 Acceptable (0.3 ≤ F1)   : 1/10 requêtes (10%)
+🔴 Faible (F1 < 0.3)       : 0/10 requêtes (0%)
+```
+
+### Test d'évaluation
 
 ```bash
-# Fork le repo
-# Clone votre fork
-git clone https://github.com/YOUR_USERNAME/ScholarHub.git
+# Lancer les tests d'évaluation
+cd backend
+python test_evaluation.py
 
-# Créez une branche
-git checkout -b feature/amazing-feature
-
-# Faites votre magie
-# ...
-
-# Commit avec amour
-git commit -m "✨ Add amazing feature that changes everything"
-
-# Push vers votre fork
-git push origin feature/amazing-feature
+# Génère: uploads/data/evaluation_report.json
 ```
 
-#### 3️⃣ **Standards de Code**
-
-- ✅ Tests unitaires obligatoires
-- 📝 Documentation claire et humaine
-- 🎨 Respect des conventions de style
-- 💬 Commits descriptifs et émotionnels
-
-#### 4️⃣ **Review Process**
-
-Chaque PR est revue avec **soin et respect**. Nous croyons en une communauté bienveillante où chaque feedback construit.
-
-</details>
-
-<div align="center">
-
-### 🌟 Contributeurs Actuels
-
-<a href="https://github.com/zakariaayl/ScholarHub/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=zakariaayl/ScholarHub" />
-</a>
-
-**Merci à chaque âme qui rend ce projet vivant. 💙**
-
-</div>
-
 ---
 
-## 🗺️ Roadmap : Le Voyage Continue
-
-<div align="center">
-
-```mermaid
-timeline
-    title Notre Voyage vers les Opportunités Étudiantes
-    section Q1 2025 ✅
-        Lancement Beta : MVP live avec recherche bourses Maroc/Europe
-        Core Features : Recherche • Matching • Profil étudiant
-    section Q2 2025 🚀
-        IA Recommandations : TF-IDF + SentenceTransformer
-        UI/UX Améliorée : Interface responsive & intuitive
-        Base de données MongoDB : Optimisation des performances
-    section Q3 2025 🌟
-        Features Collaboratives : Partage de bourses & alertes
-        API Publique : Intégration services externes
-        Analytics : Suivi des candidatures & succès
-        Expansion : Plus de bourses disponibles
-        langues : Français         
-    section 2026+ 🚀
-        Partenariats Universitaires : Faciliter l’accès aux bourses
-        Open Data Bourses : Transparence totale
-        Recommandations avancées : Modèles ML plus puissants
-        Impact Mondial : Étudiants connectés aux opportunités
+## 📁 Structure du projet
 
 ```
-</div>
+sri-bourses/
+├── 📂 frontend/                    # Application React
+│   ├── src/
+│   │   ├── components/             # Composants React
+│   │   ├── pages/                  # Pages (Home, Search, Results)
+│   │   ├── services/               # Services API
+│   │   ├── styles/                 # CSS/Tailwind
+│   │   └── App.js
+│   ├── public/
+│   ├── package.json
+│   └── .env
+│
+├── 📂 backend/                     # Application Flask
+│   ├── app.py                      # Entrée principale
+│   ├── config.py                   # Configuration
+│   ├── requirements.txt
+│   └── 📂 app/
+│       ├── services/
+│       │   ├── indexer.py          # TF-IDF Indexation
+│       │   ├── search.py           # TF-IDF Search
+│       │   ├── semantic_search.py  # BERT Search
+│       │   ├── evaluator.py        # Évaluation
+│       │   └── extractor.py        # Document extraction
+│       ├── routes/
+│       │   └── search.py           # API endpoints
+│       ├── models/
+│       │   └── document.py         # Modèles données
+│       └── utils/
+│           └── nlp.py              # Traitement NLP
+│
+├── 📂 documents/                   # Bourses (PDF, TXT)
+│   ├── DAAD_Germany.txt
+│   ├── Erasmus_Mundus.txt
+│   └── ...
+│
+├── 📂 uploads/
+│   ├── documents/                  # Documents uploadés
+│   └── data/
+│       ├── inverted_index.json     # Index TF-IDF
+│       ├── bert_embeddings.pkl     # Embeddings BERT
+│       └── evaluation_report.json  # Résultats tests
+│
+├── .env                            # Variables d'environnement
+├── .gitignore
+├── README.md
+├── LICENSE
+└── requirements.txt                # Dépendances Python
+```
 
 ---
 
+## 🔧 API Endpoints
+
+### Recherche
+
+#### POST `/api/search`
+Effectue une recherche avec les deux moteurs
+
+**Request:**
+```json
+{
+  "query": "master intelligence artificielle france",
+  "top_k": 10,
+  "engines": ["tfidf", "bert"]
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "query": "master intelligence artificielle france",
+  "results": {
+    "tfidf": [
+      {
+        "doc_id": 15,
+        "filename": "Eiffel_Excellence.txt",
+        "score": 0.85,
+        "content": "..."
+      }
+    ],
+    "bert": [
+      {
+        "doc_id": 15,
+        "similarity": 0.92,
+        "content": "..."
+      }
+    ],
+    "fusion": [
+      {
+        "doc_id": 15,
+        "combined_score": 0.89,
+        "rank": 1
+      }
+    ]
+  }
+}
+```
+
+### Index
+
+#### POST `/api/index/rebuild`
+Reconstruit l'index TF-IDF et BERT
+
+#### GET `/api/index/status`
+Retourne le statut de l'index
+
+#### POST `/api/documents/upload`
+Upload de nouveaux documents
 
 ---
 
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
-</div>
+## 📈 Performance
 
-
----
-
-## 📜 Licence & Mentions Légales
-
-<div align="center">
-
-**ScholarHub** est distribué sous licence **MIT**.
-
-Cela signifie : **liberté, ouverture, partage**.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
-<br/>
+### Benchmarks
 
 ```
-Copyright (c) 2024 ScholarHub Team
+Corpus: 17 documents
+Index TF-IDF: ~2.5 MB
+BERT Embeddings: ~15 MB
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software...
+Temps de recherche:
+- TF-IDF: < 50ms
+- BERT: 100-300ms
+- Fusion: ~350ms
 ```
 
-</div>
+### Optimisations
+
+- ✅ Caching des résultats
+- ✅ Indexation précompilée
+- ✅ Lazy loading BERT
+- ✅ Batch processing
+
+---
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Voici comment participer:
+
+1. **Fork** le repository
+2. **Créez** une branche (`git checkout -b feature/AmazingFeature`)
+3. **Committez** vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. **Poussez** vers la branche (`git push origin feature/AmazingFeature`)
+5. **Ouvrez** une Pull Request
+
+### Domaines à améliorer
+
+- [ ] Interface utilisateur mobile
+- [ ] Support multilingue complet
+- [ ] Authentification utilisateur
+- [ ] Recommandations personnalisées
+- [ ] Notification des nouvelles bourses
+- [ ] Intégration avec les universités
+
+---
+
+## 📝 License
+
+Ce projet est sous licence [MIT](LICENSE). Voir le fichier LICENSE pour plus de détails.
+
+---
+
+## 📧 Contact
+
+Pour toute question ou suggestion:
+
+- **Email:** your.email@example.com
+- **Issues:** [GitHub Issues](https://github.com/your-username/sri-bourses/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/your-username/sri-bourses/discussions)
+
+---
+
+## 🙏 Remerciements
+
+Merci à:
+- La communauté open-source Python
+- Hugging Face pour Transformers
+- MongoDB pour la base de données
+- React community
+
+---
+
+## 📚 Références
+
+- [Scikit-learn TF-IDF](https://scikit-learn.org/stable/modules/feature_extraction.html#tfidf-term-weighting)
+- [Sentence-BERT](https://www.sbert.net/)
+- [Flask Documentation](https://flask.palletsprojects.com/)
+- [React Documentation](https://react.dev/)
+- [MongoDB Documentation](https://docs.mongodb.com/)
 
 ---
 
 <div align="center">
 
+**⭐ Si ce projet vous a été utile, n'hésitez pas à laisser une star!**
 
----
-
-<div align="center">
-
-## 🔮 Dernière Pensée
-
-<br/>
-
-<img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="400">
-
-<br/><br/>
-
-### *« ScholarHub n'est pas juste une plateforme. »*
-
-### *« C'est un pont entre les esprits. »*
-
-### *« Un amplificateur de voix. »*
-
-### *« Un catalyseur de changement. »*
-
-<br/>
-
-**Nous ne construisons pas juste du code.**
-
-**Nous construisons le futur de la connaissance humaine.**
-
-<br/>
-
----
-
-### ⭐ Si vous croyez en cette vision...
-
-**Donnez une étoile à ce projet**
-
-**Partagez-le avec quelqu'un qui en a besoin**
-
-**Rejoignez-nous dans cette aventure**
-
-<br/>
-
-[![Star History Chart](https://api.star-history.com/svg?repos=zakariaayl/ScholarHub&type=Date)](https://star-history.com/#zakariaayl/ScholarHub&Date)
-
-</div>
-
----
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,18,20&height=150&section=footer" width="100%"/>
-
-<br/>
-
-**Made with 💜 by humans who care**
-
-**Powered by ☕ and late-night inspiration**
-
-<br/>
-
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com)
-
-<br/>
-
-© 2024 ScholarHub - **Where Knowledge Meets Community** ✨
+Fait avec ❤️ par [Votre Nom]
 
 </div>
