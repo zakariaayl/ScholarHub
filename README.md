@@ -35,23 +35,6 @@ Notre solution offre :
 - ✅ Deux **moteurs de recherche complémentaires**
 - ✅ Une **interface utilisateur intuitive**
 - ✅ Des **résultats précis et contextualisés**
-
-### 🌍 Bourses supportées
-
-| Pays | Programme | Niveau |
-|------|-----------|--------|
-| 🇩🇪 Allemagne | DAAD | Master |
-| 🇪🇺 Europe | Erasmus Mundus | Master |
-| 🇺🇸 États-Unis | Fulbright | Master, Doctorat |
-| 🇬🇧 Royaume-Uni | Chevening | Master |
-| 🇨🇭 Suisse | Swiss Excellence | Doctorat |
-| 🇫🇷 France | Eiffel Excellence | Master, Doctorat |
-| 🇧🇪 Belgique | ARES | Master |
-| 🇦🇹 Autriche | OeAD | Master, Recherche |
-| 🇪🇸 Espagne | Fundación Carolina | Master |
-| 🇭🇺 Hongrie | Hungaricum | Tous niveaux |
-| *Et 7 autres...* | | |
-
 ---
 
 ## ✨ Caractéristiques
