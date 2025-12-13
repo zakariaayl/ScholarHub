@@ -442,139 +442,6 @@ cd backend
 python test_evaluation.py
 
 # Génère: uploads/data/evaluation_report.json
-```
-
----
-
-## 📁 Structure du projet
-
-```
-sri-bourses/
-├── 📂 frontend/                    # Application React
-│   ├── src/
-│   │   ├── components/             # Composants React
-│   │   ├── pages/                  # Pages (Home, Search, Results)
-│   │   ├── services/               # Services API
-│   │   ├── styles/                 # CSS/Tailwind
-│   │   └── App.js
-│   ├── public/
-│   ├── package.json
-│   └── .env
-│
-├── 📂 backend/                     # Application Flask
-│   ├── app.py                      # Entrée principale
-│   ├── config.py                   # Configuration
-│   ├── requirements.txt
-│   └── 📂 app/
-│       ├── services/
-│       │   ├── indexer.py          # TF-IDF Indexation
-│       │   ├── search.py           # TF-IDF Search
-│       │   ├── semantic_search.py  # BERT Search
-│       │   ├── evaluator.py        # Évaluation
-│       │   └── extractor.py        # Document extraction
-│       ├── routes/
-│       │   └── search.py           # API endpoints
-│       ├── models/
-│       │   └── document.py         # Modèles données
-│       └── utils/
-│           └── nlp.py              # Traitement NLP
-│
-├── 📂 documents/                   # Bourses (PDF, TXT)
-│   ├── DAAD_Germany.txt
-│   ├── Erasmus_Mundus.txt
-│   └── ...
-│
-├── 📂 uploads/
-│   ├── documents/                  # Documents uploadés
-│   └── data/
-│       ├── inverted_index.json     # Index TF-IDF
-│       ├── bert_embeddings.pkl     # Embeddings BERT
-│       └── evaluation_report.json  # Résultats tests
-│
-├── .env                            # Variables d'environnement
-├── .gitignore
-├── README.md
-├── LICENSE
-└── requirements.txt                # Dépendances Python
-```
-
----
-
-## 🔧 API Endpoints
-
-### Recherche
-
-#### POST `/api/search`
-Effectue une recherche avec les deux moteurs
-
-**Request:**
-```json
-{
-  "query": "master intelligence artificielle france",
-  "top_k": 10,
-  "engines": ["tfidf", "bert"]
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "query": "master intelligence artificielle france",
-  "results": {
-    "tfidf": [
-      {
-        "doc_id": 15,
-        "filename": "Eiffel_Excellence.txt",
-        "score": 0.85,
-        "content": "..."
-      }
-    ],
-    "bert": [
-      {
-        "doc_id": 15,
-        "similarity": 0.92,
-        "content": "..."
-      }
-    ],
-    "fusion": [
-      {
-        "doc_id": 15,
-        "combined_score": 0.89,
-        "rank": 1
-      }
-    ]
-  }
-}
-```
-
-### Index
-
-#### POST `/api/index/rebuild`
-Reconstruit l'index TF-IDF et BERT
-
-#### GET `/api/index/status`
-Retourne le statut de l'index
-
-#### POST `/api/documents/upload`
-Upload de nouveaux documents
-
----
-
-## 📈 Performance
-
-### Benchmarks
-
-```
-Corpus: 17 documents
-Index TF-IDF: ~2.5 MB
-BERT Embeddings: ~15 MB
-
-Temps de recherche:
-- TF-IDF: < 50ms
-- BERT: 100-300ms
-- Fusion: ~350ms
-```
 
 ### Optimisations
 
@@ -611,27 +478,6 @@ Les contributions sont les bienvenues ! Voici comment participer:
 Ce projet est sous licence [MIT](LICENSE). Voir le fichier LICENSE pour plus de détails.
 
 ---
-
-## 📧 Contact
-
-Pour toute question ou suggestion:
-
-- **Email:** your.email@example.com
-- **Issues:** [GitHub Issues](https://github.com/your-username/sri-bourses/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/your-username/sri-bourses/discussions)
-
----
-
-## 🙏 Remerciements
-
-Merci à:
-- La communauté open-source Python
-- Hugging Face pour Transformers
-- MongoDB pour la base de données
-- React community
-
----
-
 ## 📚 Références
 
 - [Scikit-learn TF-IDF](https://scikit-learn.org/stable/modules/feature_extraction.html#tfidf-term-weighting)
@@ -645,7 +491,5 @@ Merci à:
 <div align="center">
 
 **⭐ Si ce projet vous a été utile, n'hésitez pas à laisser une star!**
-
-Fait avec ❤️ par [Votre Nom]
 
 </div>
