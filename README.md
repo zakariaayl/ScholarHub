@@ -130,8 +130,7 @@ Notre solution offre :
          │  FRONTEND               │
          │  Affiche résultats      │
          │  • TF-IDF Results       │
-         │  • BERT Results         │
-         │  • Best Matches         │
+         │  • BERT Results         │         
          └─────────────────────────┘
 ```
 
@@ -238,16 +237,12 @@ npm install
 
 **Terminal 1 - Backend:**
 ```bash
-cd sri-bourses
 python app.py
-# Backend: http://localhost:5000
 ```
 
 **Terminal 2 - Frontend:**
 ```bash
-cd sri-bourses/frontend
 npm start
-# Frontend: http://localhost:3000
 ```
 
 ---
