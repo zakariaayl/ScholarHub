@@ -421,8 +421,8 @@ Le système a été évalué sur **10 requêtes réalistes** avec un corpus de *
 
 | Métrique | TF-IDF | BERT | Fusion |
 |----------|--------|------|--------|
-| **Précision** | 17.08% | 75% | 85% |
-| **Rappel** | 80% | 90% | 95% |
+| **Précision** | 68.00% | 75% | 85% |
+| **Rappel** | 100% | 90% | 95% |
 | **F1-Score** | 0.26 | 0.82 | 0.90 |
 
 #### Performance par requête
