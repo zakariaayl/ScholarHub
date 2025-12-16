@@ -20,20 +20,11 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-5.0+-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
-[![Stars](https://img.shields.io/github/stars/yourusername/sri-bourses?style=for-the-badge)](https://github.com/yourusername/sri-bourses/stargazers)
 
-[🚀 Démo Live](#) • [📖 Documentation](#) • [🐛 Report Bug](#) • [💡 Request Feature](#)
 
 </div>
 
----
 
-## 🎯 Le Problème
-
-> **3 heures par jour** : C'est le temps moyen qu'un étudiant passe à chercher des bourses d'études  
-> **+200 portails** : Sites web dispersés, informations contradictoires, opportunités manquées
 
 ### Notre Solution ? L'Intelligence Artificielle 🤖
 
@@ -299,19 +290,6 @@ Semantic Similarity (cosine)
 
 
 
----
-
-## 🤝 Contribution
-
-<div align="center">
-
-**Nous adorons les contributions ! 💙**
-
-[![Contributors](https://img.shields.io/github/contributors/yourusername/sri-bourses?style=for-the-badge)](https://github.com/yourusername/sri-bourses/graphs/contributors)
-[![Forks](https://img.shields.io/github/forks/yourusername/sri-bourses?style=for-the-badge)](https://github.com/yourusername/sri-bourses/network/members)
-[![Issues](https://img.shields.io/github/issues/yourusername/sri-bourses?style=for-the-badge)](https://github.com/yourusername/sri-bourses/issues)
-
-</div>
 
 ### 📝 Guide de Contribution
 
@@ -332,11 +310,7 @@ Semantic Similarity (cosine)
 
 ---
 
-## 📄 License
 
-<div align="center">
-
-Ce projet est sous licence **MIT** - voir [LICENSE](LICENSE) pour plus de détails.
 
 ```
 MIT License - Copyright (c) 2024
@@ -351,22 +325,6 @@ of this software... [voir LICENSE complet]
 
 ---
 
-## 👥 L'Équipe
-
-<table align="center">
-<tr>
-<td align="center">
-<a href="https://github.com/yourusername">
-<img src="https://avatars.githubusercontent.com/u/yourid?v=4" width="100px;" alt=""/><br />
-<sub><b>Votre Nom</b></sub>
-</a><br />
-<sub>💻 Lead Developer</sub>
-</td>
-<td align="center">
-<sub>🎓 Votre Équipe</sub>
-</td>
-</tr>
-</table>
 
 ---
 
