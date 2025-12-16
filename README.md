@@ -684,35 +684,9 @@ REACT_APP_TIMEOUT=10000
 
 ---
 
-<div align="center">
-
-## 📊 Statistiques du Projet
-
-![Repo Size](https://img.shields.io/github/repo-size/yourusername/sri-bourses?style=for-the-badge&logo=github&color=6366f1)
-![Stars](https://img.shields.io/github/stars/yourusername/sri-bourses?style=for-the-badge&logo=github&color=f59e0b)
-![Forks](https://img.shields.io/github/forks/yourusername/sri-bourses?style=for-the-badge&logo=github&color=8b5cf6)
-![Issues](https://img.shields.io/github/issues/yourusername/sri-bourses?style=for-the-badge&logo=github&color=ec4899)
-![License](https://img.shields.io/github/license/yourusername/sri-bourses?style=for-the-badge&logo=github&color=10b981)
-
-<img src="https://repobeats.axiom.co/api/embed/yourusername/sri-bourses.svg" alt="Repobeats analytics" width="80%"/>
-
-</div>
 
 ---
 
-<div align="center">
-
-## 📄 License
-
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="License" width="60"/>
-
-**Ce projet est sous licence MIT**
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
-Libre d'utilisation, de modification et de distribution
-
-</div>
 
 ---
 
