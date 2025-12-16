@@ -208,13 +208,7 @@ Similarity = cosine(E(query), E(doc))
 </tr>
 </table>
 
-<div align="center">
 
-### 🔄 Fusion Intelligente = Meilleurs Résultats
-
-<img src="https://i.imgur.com/dSgUwzI.gif" width="60%" alt="Fusion Animation"/>
-
-</div>
 
 ---
 
@@ -705,8 +699,6 @@ REACT_APP_TIMEOUT=10000
 ### 💖 Supporters
 
 Si ce projet vous a aidé, donnez-lui une ⭐ !
-
-<img src="https://api.star-history.com/svg?repos=yourusername/sri-bourses&type=Date" alt="Star History" width="600"/>
 
 </div>
 
