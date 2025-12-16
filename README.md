@@ -47,7 +47,7 @@
 <td width="33%" align="center">
 <img src="https://img.icons8.com/fluency/96/000000/artificial-intelligence.png" width="64"/>
 <h4>IA Hybride</h4>
-<sub>TF-IDF + BERT combinés</sub>
+<sub>TF-IDF</sub>
 </td>
 <td width="33%" align="center">
 <img src="https://img.icons8.com/fluency/96/000000/speed.png" width="64"/>
