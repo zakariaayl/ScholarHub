@@ -252,29 +252,26 @@ graph TB
 
 </details>
 
-<details>
-<summary><h3>📊 Flux de Données</h3></summary>
+<h3>📊 Flux de Données</h3>
 
 ```mermaid
 graph TB
-    A[📄 Documents Source<br/>(PDF, TXT, JSON, Web Scraping)]
+    A[Documents Source PDF TXT JSON Web Scraping]
 
-    A --> B[🔄 Prétraitement NLP]
+    A --> B[Preprocessing NLP]
 
     B --> C[Tokenization]
     C --> D[Stemming]
     D --> E[Stop Words Removal]
 
-    E -->|Split| F[⚡ TF-IDF]
-    E -->|Split| G[🧠 BERT]
+    E --> F[TF-IDF]
+    E --> G[BERT]
 
-    F --> H[📑 Vocabulaire<br/>Index Inversé<br/>Scores IDF<br/>Matrice Sparse]
-    G --> I[🔐 Tokenizer<br/>Encoder<br/>Embeddings<br/>Vector 768D]
+    F --> H[Vocabulaire Index Inverse Scores IDF Sparse Matrix]
+    G --> I[Tokenizer Encoder Embeddings Vector 768D]
 
-    H --> J[(🗄️ MongoDB Atlas)]
+    H --> J[MongoDB Atlas scholarships collection Full-Text Search Geospatial Queries]
     I --> J
-
-    J[(🗄️ MongoDB Atlas<br/>Collection: scholarships<br/>• Indexed Fields<br/>• Full-Text Search<br/>• Geospatial Queries)]
 
     style A fill:#334155,stroke:#1e293b,color:#fff
     style B fill:#6366f1,stroke:#4f46e5,color:#fff
@@ -282,9 +279,11 @@ graph TB
     style G fill:#10b981,stroke:#059669,color:#fff
     style J fill:#14b8a6,stroke:#0d9488,color:#fff
 
+
+
 ```
 
-</details>
+
 
 ---
 
