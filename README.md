@@ -9,7 +9,7 @@
 ### 🎯 Trouvez votre bourse de rêve avec l'IA
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=Recherche+Lexicale+%E2%9A%A1+TF-IDF;Recherche+S%C3%A9mantique+%F0%9F%A7%A0+BERT;50%2B+Bourses+Internationales" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=Recherche+Lexicale+%E2%9A%A1+TF-IDF;Recherche+S%C3%A9mantique+%F0%9F%A7%A0+BERT;15%2B+Bourses+Internationales" alt="Typing SVG" />
 </p>
 
 <p align="center">
@@ -105,7 +105,7 @@
 
 ## 🚀 Stack Technologique
 
-<img src="https://skillicons.dev/icons?i=python,flask,react,mongodb,docker,git&theme=dark" alt="Tech Stack"/>
+<img src="https://skillicons.dev/icons?i=python,flask,react,mongodb,git&theme=dark" alt="Tech Stack"/>
 
 <br/><br/>
 
@@ -575,19 +575,7 @@ REACT_APP_TIMEOUT=10000
 </td>
 </tr>
 </table>
-
 ---
-
-<div align="center">
-
-## 🤝 Contribution
-
-<img src="https://contrib.rocks/image?repo=yourusername/sri-bourses" alt="Contributors" />
-
-### Nous Aimons les Contributions ! ❤️
-
-</div>
-
 <table>
 <tr>
 <td width="50%">
