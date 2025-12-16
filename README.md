@@ -548,24 +548,6 @@ Les contributions sont les bienvenues ! 🎉
 
 </div>
 
-### Comment Contribuer
-
-1. 🍴 **Fork** le repository
-2. 🌿 **Créez** une branche (`git checkout -b feature/AmazingFeature`)
-3. 💾 **Committez** vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 **Poussez** vers la branche (`git push origin feature/AmazingFeature`)
-5. 🔄 **Ouvrez** une Pull Request
-
-### 🚧 Domaines à Améliorer
-
-- [ ] Interface utilisateur mobile
-- [ ] Support multilingue complet
-- [ ] Authentification utilisateur
-- [ ] Recommandations personnalisées
-- [ ] Notification des nouvelles bourses
-- [ ] Intégration avec les universités
-
----
 
 ## 📝 License
 
