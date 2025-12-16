@@ -298,43 +298,6 @@ Semantic Similarity (cosine)
 
 
 
-### 📊 Coverage
-
-```
-backend/
-├── searchers/      98% ✅
-├── api/           95% ✅
-├── utils/         92% ✅
-└── models/        89% ✅
-
-Overall: 94% 🏆
-```
-
----
-
-## 🗺️ Roadmap
-
-<div align="center">
-
-```mermaid
-gantt
-    title Roadmap 2024-2025
-    dateFormat  YYYY-MM-DD
-    section Phase 1
-    MVP Release           :done,    2024-01-01, 60d
-    Beta Testing          :done,    2024-03-01, 30d
-    section Phase 2
-    Mobile App            :active,  2024-04-01, 90d
-    API v2                :active,  2024-05-01, 60d
-    section Phase 3
-    ML Recommendations    :         2024-07-01, 120d
-    Multi-language        :         2024-08-01, 90d
-    section Phase 4
-    Enterprise Features   :         2024-11-01, 120d
-    Partnerships          :         2024-12-01, 90d
-```
-
-</div>
 
 ---
 
