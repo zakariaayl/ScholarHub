@@ -296,86 +296,7 @@ Semantic Similarity (cosine)
 </tr>
 </table>
 
-### 🎯 Exemples de Requêtes
 
-```javascript
-// Requêtes simples
-"bourse master France" 
-"Fulbright doctorat"
-
-// Requêtes complexes
-"programme d'intelligence artificielle financé pour étudiants internationaux"
-"opportunités de recherche en machine learning en Europe avec logement"
-
-// Requêtes en français naturel
-"je cherche une bourse pour faire un master en informatique en Allemagne"
-"quelles sont les bourses disponibles pour un doctorat en IA ?"
-```
-
----
-
-## 🚀 Déploiement
-
-### Option 1 : Docker (Recommandé)
-
-```bash
-# Build & Run
-docker-compose up -d
-
-# Check status
-docker ps
-
-# Logs
-docker-compose logs -f
-```
-
-### Option 2 : Cloud (Heroku)
-
-```bash
-# Login
-heroku login
-
-# Create app
-heroku create sri-bourses
-
-# Deploy
-git push heroku main
-
-# Open
-heroku open
-```
-
-### Option 3 : Serverless (Vercel + MongoDB Atlas)
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy frontend
-cd frontend && vercel
-
-# Configure environment
-vercel env add REACT_APP_API_URL
-```
-
----
-
-## 🧪 Tests & Qualité
-
-```bash
-# Tests unitaires
-pytest tests/ -v --cov
-
-# Tests d'intégration
-python test_evaluation.py
-
-# Linting
-flake8 backend/
-eslint frontend/src/
-
-# Type checking
-mypy backend/
-```
 
 ### 📊 Coverage
 
@@ -414,17 +335,6 @@ gantt
 ```
 
 </div>
-
-### 🎯 Prochaines Features
-
-- [ ] 📱 Application mobile (React Native)
-- [ ] 🌐 Support multilingue (EN, FR, AR, ES)
-- [ ] 🔐 Authentification & Profils utilisateurs
-- [ ] 🤝 Intégration universités partenaires
-- [ ] 📧 Notifications email personnalisées
-- [ ] 🎓 Système de recommandations ML
-- [ ] 📊 Dashboard analytics pour admins
-- [ ] 💬 Chatbot d'assistance IA
 
 ---
 
