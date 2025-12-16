@@ -520,27 +520,10 @@ of this software... [voir LICENSE complet]
 
 ---
 
-## ⭐ Star History
-
-<div align="center">
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/sri-bourses&type=Date)](https://star-history.com/#yourusername/sri-bourses&Date)
-
-**Si ce projet vous aide, n'oubliez pas de mettre une ⭐ !**
-
-</div>
 
 ---
 
-<div align="center">
 
-**Fait avec ❤️ pour les étudiants du monde entier**
-
-🎓 **SRI - Système de Recherche Intelligent** 🎓
-
-*Trouvez votre avenir, une recherche à la fois*
-
----
 
 [⬆ Retour en haut](#-sri---système-de-recherche-intelligent)
 
