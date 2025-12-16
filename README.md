@@ -616,17 +616,7 @@ REACT_APP_TIMEOUT=10000
 </tr>
 </table>
 
-<div align="center">
 
-### 💬 Rejoignez la Communauté
-
-[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/yourserver)
-[![Slack](https://img.shields.io/badge/Slack-Join-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://slack.com/yourworkspace)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourhandle)
-
-</div>
-
----
 
 <div align="center">
 
