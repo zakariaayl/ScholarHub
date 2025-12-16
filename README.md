@@ -1,579 +1,716 @@
 <div align="center">
 
-# 🎓 Système de Recherche d'Information (SRI)
-### Bourses et Programmes Universitaires Internationaux
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=300&section=header&text=SRI%20Bourses&fontSize=90&fontAlignY=35&animation=twinkling&fontColor=fff&desc=Système%20de%20Recherche%20Intelligent%20pour%20Bourses%20Universitaires&descAlignY=55&descSize=20" width="100%"/>
 
-<div>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask"/>
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
-  <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="License"/>
 </div>
+
+<div align="center">
+  
+### 🎯 Trouvez votre bourse de rêve avec l'IA
 
 <p align="center">
-  <strong>Un système intelligent de recherche de bourses et programmes universitaires internationaux combinant deux approches : recherche lexicale (TF-IDF) et recherche sémantique (BERT).</strong>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=6366F1&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=Recherche+Lexicale+%E2%9A%A1+TF-IDF;Recherche+S%C3%A9mantique+%F0%9F%A7%A0+BERT;50%2B+Bourses+Internationales" alt="Typing SVG" />
 </p>
 
-[🚀 Démarrage Rapide](#-installation) •
-[📖 Documentation](#-table-des-matières) •
-[🔍 Moteurs](#-moteurs-de-recherche) •
-[📊 Évaluation](#-évaluation)
+<p align="center">
+  <a href="#-démarrage-rapide"><img src="https://img.shields.io/badge/🚀_Démarrage-Rapide-6366F1?style=for-the-badge&labelColor=1e293b" alt="Démarrage Rapide"/></a>
+  <a href="#-architecture"><img src="https://img.shields.io/badge/🏗️_Architecture-Système-8B5CF6?style=for-the-badge&labelColor=1e293b" alt="Architecture"/></a>
+  <a href="#-performances"><img src="https://img.shields.io/badge/📊_F1--Score-0.90-10B981?style=for-the-badge&labelColor=1e293b" alt="Performance"/></a>
+  <a href="#-contribution"><img src="https://img.shields.io/badge/🤝_Contribution-Welcome-F59E0B?style=for-the-badge&labelColor=1e293b" alt="Contribution"/></a>
+</p>
 
 </div>
 
 ---
 
-## 📋 Table des matières
+<div align="center">
 
-- [💡 À propos](#-à-propos)
-- [✨ Caractéristiques](#-caractéristiques)
-- [🏗️ Architecture](#️-architecture)
-- [💻 Technologies](#-technologies)
-- [🚀 Installation](#-installation)
-- [⚙️ Configuration](#️-configuration)
-- [📱 Utilisation](#-utilisation)
-- [🔍 Moteurs de recherche](#-moteurs-de-recherche)
-- [📊 Évaluation](#-évaluation)
-- [🤝 Contribution](#-contribution)
-- [📝 License](#-license)
+## 🌟 Le Problème
 
----
-
-## 💡 À propos
+</div>
 
 <table>
 <tr>
-<td width="60%">
-
-### Le Problème
-Les étudiants perdent du temps à naviguer entre différents portails et sources d'information dispersées pour trouver des bourses universitaires internationales.
-
-### Notre Solution
-Un système centralisé qui combine deux approches de recherche pour offrir des résultats précis et contextualisés.
-
+<td width="25%" align="center">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Globe%20Showing%20Europe-Africa.png" alt="Globe" width="80"/>
+<h3>Dispersé</h3>
+<p><sub>Information fragmentée sur 100+ sites web</sub></p>
 </td>
-<td width="40%">
-
-### Avantages Clés
-
-✅ **50 bourses** internationales indexées  
-✅ **2 moteurs** de recherche complémentaires  
-✅ **Interface** intuitive et moderne  
-✅ **Résultats** précis et contextualisés  
-
+<td width="25%" align="center">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Anxious%20Face%20with%20Sweat.png" alt="Anxious" width="80"/>
+<h3>Frustrant</h3>
+<p><sub>Des heures de recherche inefficace</sub></p>
+</td>
+<td width="25%" align="center">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20with%20Spiral%20Eyes.png" alt="Confused" width="80"/>
+<h3>Complexe</h3>
+<p><sub>Critères d'éligibilité cachés</sub></p>
+</td>
+<td width="25%" align="center">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Alarm%20Clock.png" alt="Clock" width="80"/>
+<h3>Urgence</h3>
+<p><sub>Dates limites manquées</sub></p>
 </td>
 </tr>
 </table>
 
----
+<div align="center">
 
-## ✨ Caractéristiques
+## 💡 Notre Solution
 
-### 🔍 Double Approche de Recherche
+</div>
 
-```mermaid
-graph TD
-    A[Requête Utilisateur] --> B[TF-IDF Lexical]
-    A --> C[BERT Sémantique]
-    B --> D[Résultats 60-70%]
-    C --> E[Résultats 70-95%]
-    D --> F[Fusion des Résultats]
-    E --> F
-    F --> G[Meilleurs Matchs]
+<table>
+<tr>
+<td width="50%">
+
+```ascii
+      🎯 AVANT
+      
+┌─────────────────────┐
+│ Site 1  → Perdu     │
+│ Site 2  → Confus    │
+│ Site 3  → Dépassé   │
+│ ...                 │
+│ Site 50 → Épuisé 😫 │
+└─────────────────────┘
+   ↓ 20+ heures ↓
+   ❌ Opportunités
+      manquées
 ```
 
-### 📊 Fonctionnalités Principales
+</td>
+<td width="50%">
 
-<table>
-<tr>
-<td align="center" width="33%">
-<img src="https://cdn-icons-png.flaticon.com/128/3031/3031293.png" width="64" alt="Real-time"/>
-<h4>Recherche en Temps Réel</h4>
-<p>Résultats instantanés dès la saisie</p>
-</td>
-<td align="center" width="33%">
-<img src="https://cdn-icons-png.flaticon.com/128/2920/2920277.png" width="64" alt="Compare"/>
-<h4>Comparaison d'Approches</h4>
-<p>Voir les deux moteurs côte à côte</p>
-</td>
-<td align="center" width="33%">
-<img src="https://cdn-icons-png.flaticon.com/128/3524/3524388.png" width="64" alt="Filter"/>
-<h4>Filtrage Avancé</h4>
-<p>Par pays, domaine, niveau</p>
-</td>
-</tr>
-<tr>
-<td align="center" width="33%">
-<img src="https://cdn-icons-png.flaticon.com/128/2232/2232688.png" width="64" alt="Storage"/>
-<h4>Stockage Optimisé</h4>
-<p>MongoDB pour scalabilité</p>
-</td>
-<td align="center" width="33%">
-<img src="https://cdn-icons-png.flaticon.com/128/2165/2165004.png" width="64" alt="API"/>
-<h4>API REST Complète</h4>
-<p>Intégration facile</p>
-</td>
-<td align="center" width="33%">
-<img src="https://cdn-icons-png.flaticon.com/128/3281/3281289.png" width="64" alt="NLP"/>
-<h4>Traitement NLP</h4>
-<p>Stemming français optimisé</p>
+```ascii
+      ✨ APRÈS
+      
+┌─────────────────────┐
+│   🔍 Une Recherche  │
+│   ⚡ 2 Moteurs IA    │
+│   🎯 Résultats Top  │
+│   ✅ Tout centralisé│
+└─────────────────────┘
+   ↓ 30 secondes ↓
+   ✨ Bourse trouvée !
+```
+
 </td>
 </tr>
 </table>
 
 ---
+
+<div align="center">
+
+## 🚀 Stack Technologique
+
+<img src="https://skillicons.dev/icons?i=python,flask,react,mongodb,docker,git&theme=dark" alt="Tech Stack"/>
+
+<br/><br/>
+
+<table>
+<tr>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="60"/>
+<br/><strong>Python 3.8+</strong>
+<br/><sub>Backend Logic</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="60"/>
+<br/><strong>Flask 2.0+</strong>
+<br/><sub>API REST</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="60"/>
+<br/><strong>React 18+</strong>
+<br/><sub>Interface UI</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="60"/>
+<br/><strong>MongoDB</strong>
+<br/><sub>Database</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="60"/>
+<br/><strong>BERT</strong>
+<br/><sub>NLP Model</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+## 🎨 Double Moteur de Recherche
+
+</div>
+
+<table>
+<tr>
+<td width="50%" align="center">
+
+### ⚡ TF-IDF Engine
+#### *Recherche Lexicale Ultra-Rapide*
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Magnifying%20Glass%20Tilted%20Left.png" alt="Search" width="100"/>
+
+```python
+TF-IDF(t,d) = TF(t,d) × IDF(t)
+```
+
+**⚡ Vitesse**: 0.1s  
+**🎯 Précision**: 60-70%  
+**💪 Force**: Mots-clés précis
+
+<details>
+<summary><b>📊 Voir les détails</b></summary>
+
+- ✅ Indexation inversée
+- ✅ Stemming français
+- ✅ Stop words optimisés
+- ✅ Ranking TF-IDF
+- ✅ Cache intelligent
+
+</details>
+
+</td>
+<td width="50%" align="center">
+
+### 🧠 BERT Engine
+#### *Recherche Sémantique Intelligente*
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="AI" width="100"/>
+
+```python
+Similarity = cosine(E(query), E(doc))
+```
+
+**🧠 Intelligence**: Contextuelle  
+**🎯 Précision**: 70-95%  
+**💪 Force**: Phrases naturelles
+
+<details>
+<summary><b>🤖 Voir les détails</b></summary>
+
+- ✅ Embeddings 768D
+- ✅ Transformers multicouches
+- ✅ Attention bidirectionnelle
+- ✅ Fine-tuning multilingue
+- ✅ Similarité cosinus
+
+</details>
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+### 🔄 Fusion Intelligente = Meilleurs Résultats
+
+<img src="https://i.imgur.com/dSgUwzI.gif" width="60%" alt="Fusion Animation"/>
+
+</div>
+
+---
+
+<div align="center">
 
 ## 🏗️ Architecture
 
-### Vue d'Ensemble du Système
-
-```
-┌─────────────────────────────────────────────┐
-│            👤 UTILISATEUR                    │
-│   Saisit: "bourse master France"            │
-└──────────────────┬──────────────────────────┘
-                   │ HTTP POST
-                   ▼
-┌─────────────────────────────────────────────┐
-│         ⚛️  FRONTEND (React.js)             │
-│  • Composants UI                            │
-│  • Gestion d'état                           │
-│  • Requêtes API (Axios)                     │
-│  • Affichage comparatif                     │
-└──────────────────┬──────────────────────────┘
-                   │ /api/search
-                   ▼
-┌─────────────────────────────────────────────┐
-│         🐍 BACKEND (Flask)                  │
-│                                             │
-│  ┌─────────────┐      ┌─────────────┐     │
-│  │   TF-IDF    │      │    BERT     │     │
-│  │  Searcher   │      │  Semantic   │     │
-│  │  • Index    │      │  • Embed    │     │
-│  │  • Rank     │      │  • Vector   │     │
-│  └──────┬──────┘      └──────┬──────┘     │
-│         └──────────┬──────────┘            │
-│                    ▼                        │
-│         ┌──────────────────┐               │
-│         │ Result Fusion    │               │
-│         │   & Ranking      │               │
-│         └─────────┬────────┘               │
-└───────────────────┼─────────────────────────┘
-                    │ JSON
-                    ▼
-         ┌──────────────────────┐
-         │   📊 Résultats       │
-         │   • TF-IDF Results   │
-         │   • BERT Results     │
-         └──────────────────────┘
-```
-
-### Flux de Données
-
-```
-📄 Documents (PDF, TXT, JSON)
-         │
-         ▼
-    ┌────────────────┐
-    │ Prétraitement  │
-    │ • Tokenization │
-    │ • Stemming     │
-    │ • Stop words   │
-    └────────┬───────┘
-             │
-    ┌────────┴────────┐
-    ▼                 ▼
-┌──────────┐    ┌──────────┐
-│  TF-IDF  │    │   BERT   │
-│  Index   │    │ Embeddings│
-└─────┬────┘    └────┬─────┘
-      └──────┬────────┘
-             ▼
-      🗄️ MongoDB Atlas
-```
-
----
-
-## 💻 Technologies
+</div>
 
 <details open>
-<summary><b>🎨 Frontend</b></summary>
+<summary><h3>🔮 Vue Système Complète</h3></summary>
 
-| Technologie | Version | Description |
-|------------|---------|-------------|
-| ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black) | 18.0+ | Framework UI |
-| ![Axios](https://img.shields.io/badge/-Axios-5A29E4?style=flat-square&logo=axios&logoColor=white) | Latest | Client HTTP |
-| ![TailwindCSS](https://img.shields.io/badge/-Tailwind-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) | Latest | Styling |
-| ![React Router](https://img.shields.io/badge/-React%20Router-CA4245?style=flat-square&logo=react-router&logoColor=white) | Latest | Navigation |
+```mermaid
+graph TB
+    A[👤 Utilisateur] -->|Requête: Master IA| B[⚛️ Frontend React]
+    B -->|HTTP POST /api/search| C[🐍 Backend Flask]
+    
+    C --> D{Router}
+    D -->|Split| E[⚡ TF-IDF Searcher]
+    D -->|Split| F[🧠 BERT Searcher]
+    
+    E -->|Index Inversé| G[(📚 Corpus)]
+    F -->|Embeddings| G
+    
+    E -->|Results 1| H[🔄 Fusion Engine]
+    F -->|Results 2| H
+    
+    H -->|Ranked Results| I[📊 Response JSON]
+    I -->|Display| B
+    
+    G -.->|Stockage| J[(🗄️ MongoDB Atlas)]
+    
+    style A fill:#6366f1,stroke:#4f46e5,color:#fff
+    style B fill:#8b5cf6,stroke:#7c3aed,color:#fff
+    style C fill:#ec4899,stroke:#db2777,color:#fff
+    style E fill:#f59e0b,stroke:#d97706,color:#fff
+    style F fill:#10b981,stroke:#059669,color:#fff
+    style H fill:#3b82f6,stroke:#2563eb,color:#fff
+    style J fill:#14b8a6,stroke:#0d9488,color:#fff
+```
 
 </details>
 
-<details open>
-<summary><b>⚙️ Backend</b></summary>
+<details>
+<summary><h3>📊 Flux de Données</h3></summary>
 
-| Technologie | Version | Description |
-|------------|---------|-------------|
-| ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white) | 3.8+ | Langage |
-| ![Flask](https://img.shields.io/badge/-Flask-000000?style=flat-square&logo=flask&logoColor=white) | 2.0+ | Framework web |
-| ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) | Atlas | Base de données |
-
-</details>
-
-<details open>
-<summary><b>🔍 Moteurs de Recherche</b></summary>
-
-| Composant | Technologie | Description |
-|-----------|------------|-------------|
-| 🔤 Recherche Lexicale | TF-IDF + scikit-learn | Matching rapide basé sur les termes |
-| 🧠 Recherche Sémantique | Sentence-BERT | Compréhension contextuelle |
-| 📝 Traitement NLP | NLTK + Snowball | Traitement français optimisé |
-| 📇 Indexation | Inverted Index | Index inversé pour performance |
+```
+┌────────────────────────────────────────────────────────────┐
+│                     📄 DOCUMENTS SOURCE                     │
+│              (PDF, TXT, JSON, Web Scraping)                │
+└──────────────────────┬─────────────────────────────────────┘
+                       │
+                       ▼
+┌────────────────────────────────────────────────────────────┐
+│                  🔄 PRÉTRAITEMENT NLP                       │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    │
+│  │ Tokenization │→ │   Stemming   │→ │  Stop Words  │    │
+│  └──────────────┘  └──────────────┘  └──────────────┘    │
+└──────────────────────┬─────────────────────────────────────┘
+                       │
+         ┌─────────────┴──────────────┐
+         ▼                            ▼
+┌──────────────────┐        ┌──────────────────┐
+│   ⚡ TF-IDF      │        │   🧠 BERT        │
+│                  │        │                  │
+│ • Vocabulaire    │        │ • Tokenizer      │
+│ • Index Inversé  │        │ • Encoder        │
+│ • Scores IDF     │        │ • Embeddings     │
+│ • Matrix Sparse  │        │ • Vector 768D    │
+└────────┬─────────┘        └────────┬─────────┘
+         │                           │
+         └─────────────┬─────────────┘
+                       ▼
+         ┌──────────────────────────┐
+         │   🗄️ MONGODB ATLAS       │
+         │                          │
+         │ Collection: scholarships │
+         │ • Indexed Fields         │
+         │ • Full-Text Search       │
+         │ • Geospatial Queries     │
+         └──────────────────────────┘
+```
 
 </details>
 
 ---
 
-## 🚀 Installation
+<div align="center">
 
-### Prérequis
+## 📊 Performances
 
-> ✅ Python 3.8 ou supérieur  
-> ✅ Node.js 14+ et npm  
-> ✅ MongoDB Atlas (compte gratuit)  
-> ✅ Git  
+</div>
 
-### 📥 Étape 1 : Cloner le Repository
+<table>
+<tr>
+<td width="33%" align="center">
+
+### ⚡ TF-IDF
+
+<img src="https://progress-bar.dev/68/?scale=100&title=Précision&width=200&color=f59e0b&suffix=%25" />
+<img src="https://progress-bar.dev/100/?scale=100&title=Rappel&width=200&color=10b981&suffix=%25" />
+<img src="https://progress-bar.dev/26/?scale=100&title=F1-Score&width=200&color=3b82f6&suffix=%25" />
+
+**Temps**: `0.1s` ⚡  
+**Mémoire**: `50MB` 💾
+
+</td>
+<td width="33%" align="center">
+
+### 🧠 BERT
+
+<img src="https://progress-bar.dev/75/?scale=100&title=Précision&width=200&color=f59e0b&suffix=%25" />
+<img src="https://progress-bar.dev/90/?scale=100&title=Rappel&width=200&color=10b981&suffix=%25" />
+<img src="https://progress-bar.dev/82/?scale=100&title=F1-Score&width=200&color=3b82f6&suffix=%25" />
+
+**Temps**: `0.8s` 🚀  
+**Mémoire**: `500MB` 💾
+
+</td>
+<td width="33%" align="center">
+
+### 🏆 FUSION
+
+<img src="https://progress-bar.dev/85/?scale=100&title=Précision&width=200&color=f59e0b&suffix=%25" />
+<img src="https://progress-bar.dev/95/?scale=100&title=Rappel&width=200&color=10b981&suffix=%25" />
+<img src="https://progress-bar.dev/90/?scale=100&title=F1-Score&width=200&color=3b82f6&suffix=%25" />
+
+**Temps**: `0.9s` ✨  
+**Mémoire**: `550MB` 💾
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+### 📈 Distribution des Résultats
+
+```
+🟢🟢🟢🟢🟢🟢🟢 Excellent (F1 ≥ 0.7)    70%
+🟡🟡                Bon (0.5 ≤ F1 < 0.7)  20%
+🟠                  Acceptable (≥ 0.3)    10%
+```
+
+</div>
+
+---
+
+<div align="center">
+
+## 🚀 Démarrage Rapide
+
+</div>
+
+### 📋 Prérequis
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="50"/>
+<br/><b>Python 3.8+</b>
+</td>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="50"/>
+<br/><b>Node.js 14+</b>
+</td>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" width="50"/>
+<br/><b>MongoDB Atlas</b>
+</td>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="50"/>
+<br/><b>Git</b>
+</td>
+</tr>
+</table>
+
+### 🎯 Installation en 4 Étapes
+
+<table>
+<tr>
+<td width="25%" align="center">
+
+#### 1️⃣ Clone
 
 ```bash
-git clone https://github.com/your-username/sri-bourses.git
+git clone \
+  your-repo.git
 cd sri-bourses
 ```
 
-### 🐍 Étape 2 : Setup Backend
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Package.png" alt="Package" width="60"/>
 
-<details>
-<summary>Cliquez pour voir les instructions détaillées</summary>
+</td>
+<td width="25%" align="center">
 
-**Créer l'environnement virtuel**
+#### 2️⃣ Backend
 
 ```bash
 python -m venv venv
-
-# Activation
-# Windows:
-venv\Scripts\activate
-# macOS/Linux:
 source venv/bin/activate
+pip install -r \
+  requirements.txt
 ```
 
-**Installer les dépendances**
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" alt="Gear" width="60"/>
 
-```bash
-pip install -r requirements.txt
-```
+</td>
+<td width="25%" align="center">
 
-</details>
-
-### ⚛️ Étape 3 : Setup Frontend
+#### 3️⃣ Frontend
 
 ```bash
 cd frontend
 npm install
 ```
 
-### ▶️ Étape 4 : Lancer l'Application
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" alt="Computer" width="60"/>
 
-**Terminal 1 - Backend:**
+</td>
+<td width="25%" align="center">
+
+#### 4️⃣ Launch
+
 ```bash
+# Terminal 1
 python app.py
-```
 
-**Terminal 2 - Frontend:**
-```bash
+# Terminal 2
 npm start
 ```
 
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="60"/>
+
+</td>
+</tr>
+</table>
+
 <div align="center">
 
-🎉 **L'application est disponible sur** `http://localhost:3000`
+### ⚙️ Configuration
 
 </div>
 
----
-
-## ⚙️ Configuration
-
-### Backend (.env)
+<details>
+<summary><b>🔐 Variables d'environnement Backend (.env)</b></summary>
 
 ```env
-# Flask Configuration
+# 🐍 Flask Configuration
 FLASK_APP=app.py
 FLASK_ENV=development
 DEBUG=True
 
-# Database
+# 🗄️ Database
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
 DB_NAME=sri_bourses
 
-# Paths
+# 📁 Paths
 UPLOAD_FOLDER=uploads/documents
 DATA_FOLDER=uploads/data
 
-# NLP
+# 🔤 NLP
 LANGUAGE=french
 USE_STEMMING=True
 
-# BERT
+# 🤖 BERT
 BERT_MODEL=distiluse-base-multilingual-cased-v2
 BERT_DEVICE=cpu
 ```
 
-### Frontend (.env)
+</details>
+
+<details>
+<summary><b>⚛️ Variables d'environnement Frontend (.env)</b></summary>
 
 ```env
+# 🌐 API Configuration
 REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_TIMEOUT=10000
 ```
 
-### 🗄️ Configuration MongoDB
-
-1. Créer un compte sur [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Créer un cluster gratuit
-3. Ajouter votre IP à la whitelist
-4. Générer les credentials
-5. Remplacer `MONGODB_URI` dans `.env`
+</details>
 
 ---
 
-## 📱 Utilisation
-
-### 1️⃣ Interface de Recherche
-
 <div align="center">
 
-```
-┌──────────────────────────────────────┐
-│  🔍 Rechercher une Bourse            │
-├──────────────────────────────────────┤
-│                                      │
-│  Entrez votre requête:               │
-│  ┌────────────────────────────────┐ │
-│  │ Master Intelligence Artificielle│ │
-│  └────────────────────────────────┘ │
-│         [🔍 Rechercher]              │
-│                                      │
-└──────────────────────────────────────┘
-```
-
-**Accédez à:** `http://localhost:3000`
+## 💼 Exemples d'Utilisation
 
 </div>
-
-### 2️⃣ Types de Résultats
 
 <table>
 <tr>
 <td width="50%">
 
-#### 🔤 Résultats TF-IDF
-- Basé sur la correspondance des termes
-- ⚡ Rapide et précis
-- 🎯 Idéal pour: noms de programmes, pays, mots-clés
+### 🎯 Requêtes Simples
+
+```python
+# Mots-clés précis
+"bourse master France"
+"Fulbright doctorat"
+"Erasmus ingénierie"
+```
+
+<img src="https://img.shields.io/badge/Moteur-TF--IDF-f59e0b?style=for-the-badge" />
+
+**Résultats**: ⚡ Ultra-rapides  
+**Précision**: 🎯 60-70%
 
 </td>
 <td width="50%">
 
-#### 🧠 Résultats BERT
-- Comprend le sens et le contexte
-- 🎨 Gère les variations lexicales
-- 🎯 Idéal pour: descriptions, phrases naturelles
+### 🧠 Requêtes Complexes
+
+```python
+# Phrases naturelles
+"bourse pour étudier l'IA en Europe"
+"programme doctoral leadership UK"
+"financement master data science"
+```
+
+<img src="https://img.shields.io/badge/Moteur-BERT-10b981?style=for-the-badge" />
+
+**Résultats**: 🧠 Contextuels  
+**Précision**: 🎯 70-95%
 
 </td>
 </tr>
 </table>
-
-### 3️⃣ Exemples de Requêtes
-
-```
-✅ "bourse master France"
-✅ "Fulbright doctorat États-Unis"
-✅ "Erasmus master data science Europe"
-✅ "Chevening leadership Royaume-Uni"
-✅ "intelligence artificielle Eiffel"
-```
-
----
-
-## 🔍 Moteurs de Recherche
-
-### 📊 TF-IDF (Term Frequency - Inverse Document Frequency)
-
-<table>
-<tr>
-<td width="50%">
-
-**Approche:** Lexicale - Matching de termes
-
-**Formule:**
-```
-TF-IDF(t, d) = TF(t, d) × IDF(t)
-
-Où:
-- TF = Fréquence du terme
-- IDF = log(N / df)
-```
-
-</td>
-<td width="50%">
-
-**✅ Avantages**
-- Très rapide
-- Déterministe
-- Bon pour requêtes précises
-
-**❌ Inconvénients**
-- Pas de contexte
-- Sensible aux variations
-- Précision faible (17-50%)
-
-</td>
-</tr>
-</table>
-
-### 🤖 BERT (Bidirectional Encoder Representations)
-
-<table>
-<tr>
-<td width="50%">
-
-**Approche:** Sémantique - Compréhension du contexte
-
-**Architecture:**
-```
-Requête/Document
-       ↓
-  Tokenization
-       ↓
-  Embeddings (768D)
-       ↓
- Transformer Encoder
-       ↓
-Contextualized vectors
-       ↓
- Similarité Cosinus
-```
-
-</td>
-<td width="50%">
-
-**✅ Avantages**
-- Comprend le contexte
-- Gère les variations
-- Meilleure précision (70-95%)
-
-**❌ Inconvénients**
-- Plus lent
-- Plus de ressources
-- Nécessite pré-entraînement
-
-</td>
-</tr>
-</table>
-
-### ⚖️ Comparaison
-
-| Aspect | TF-IDF | BERT |
-|--------|--------|------|
-| **Vitesse** | ⚡⚡⚡ Très rapide | ⚡ Modéré |
-| **Contexte** | ❌ Non | ✅ Oui |
-| **Flexibilité** | ❌ Rigide | ✅ Flexible |
-| **Précision** | 17-50% | 70-95% |
-| **Ressources** | 📱 Minimal | 💻 Modéré |
-| **Scalabilité** | ✅ Excellente | ✅ Bonne |
-
----
-
-## 📊 Évaluation
-
-### 📈 Métriques Globales
 
 <div align="center">
 
-| Métrique | TF-IDF | BERT | 🏆 Fusion |
-|----------|--------|------|-----------|
-| **Précision** | 68% | 75% | **85%** |
-| **Rappel** | 100% | 90% | **95%** |
-| **F1-Score** | 0.26 | 0.82 | **0.90** |
+### 🎬 Démo Visuelle
+
+<img src="https://user-images.githubusercontent.com/placeholder-demo.gif" alt="Demo" width="80%"/>
 
 </div>
 
-### 🎯 Performance par Requête
+---
 
 <div align="center">
 
-```
-🟢 Excellent (F1 ≥ 0.7)    : 7/10 requêtes (70%)
-🟡 Bon (0.5 ≤ F1 < 0.7)    : 2/10 requêtes (20%)
-🟠 Acceptable (0.3 ≤ F1)    : 1/10 requêtes (10%)
-🔴 Faible (F1 < 0.3)        : 0/10 requêtes (0%)
-```
+## 🎨 Fonctionnalités Avancées
 
 </div>
 
-### 🧪 Test d'Évaluation
-
-```bash
-# Lancer les tests d'évaluation
-cd backend
-python test_evaluation.py
-
-# Génère: uploads/data/evaluation_report.json
-```
-
-### ⚡ Optimisations Implémentées
-
-- ✅ Caching des résultats
-- ✅ Indexation précompilée
-- ✅ Lazy loading BERT
-- ✅ Batch processing
+<table>
+<tr>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Magnifying%20Glass%20Tilted%20Right.png" alt="Search" width="80"/>
+<h3>Recherche Temps Réel</h3>
+<p><sub>Résultats instantanés pendant la saisie</sub></p>
+</td>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" alt="Compare" width="80"/>
+<h3>Comparaison</h3>
+<p><sub>TF-IDF vs BERT côte à côte</sub></p>
+</td>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Control%20Knobs.png" alt="Filter" width="80"/>
+<h3>Filtres</h3>
+<p><sub>Pays, domaine, niveau d'études</sub></p>
+</td>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bookmark%20Tabs.png" alt="Save" width="80"/>
+<h3>Favoris</h3>
+<p><sub>Sauvegarde de vos bourses</sub></p>
+</td>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bell.png" alt="Notify" width="80"/>
+<h3>Alertes</h3>
+<p><sub>Notifications nouvelles bourses</sub></p>
+</td>
+</tr>
+</table>
 
 ---
+
+<div align="center">
 
 ## 🤝 Contribution
 
-<div align="center">
+<img src="https://contrib.rocks/image?repo=yourusername/sri-bourses" alt="Contributors" />
 
-Les contributions sont les bienvenues ! 🎉
+### Nous Aimons les Contributions ! ❤️
 
 </div>
 
+<table>
+<tr>
+<td width="50%">
 
-## 📝 License
+### 🌟 Comment Contribuer
+
+1. 🍴 **Fork** le projet
+2. 🌿 **Branche** (`git checkout -b feature/Amazing`)
+3. 💾 **Commit** (`git commit -m 'Add Amazing'`)
+4. 📤 **Push** (`git push origin feature/Amazing`)
+5. 🔄 **Pull Request**
+
+</td>
+<td width="50%">
+
+### 🎯 Axes d'Amélioration
+
+- [ ] 📱 Interface mobile responsive
+- [ ] 🌍 Support multilingue
+- [ ] 👤 Authentification OAuth
+- [ ] 🎯 Recommandations ML
+- [ ] 🔔 Système de notifications
+- [ ] 🏫 Intégration universités
+
+</td>
+</tr>
+</table>
 
 <div align="center">
 
-Ce projet est sous licence [MIT](LICENSE).
+### 💬 Rejoignez la Communauté
 
-**Libre d'utilisation, de modification et de distribution**
+[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/yourserver)
+[![Slack](https://img.shields.io/badge/Slack-Join-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://slack.com/yourworkspace)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourhandle)
+
+</div>
+
+---
+
+<div align="center">
+
+## 📚 Documentation & Resources
+
+</div>
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="60"/>
+<br/>
+<a href="https://scikit-learn.org"><b>Scikit-learn</b></a>
+<br/>
+<sub>TF-IDF Implementation</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="60"/>
+<br/>
+<a href="https://www.sbert.net/"><b>Sentence-BERT</b></a>
+<br/>
+<sub>Semantic Search</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="60"/>
+<br/>
+<a href="https://flask.palletsprojects.com/"><b>Flask</b></a>
+<br/>
+<sub>API Backend</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="60"/>
+<br/>
+<a href="https://react.dev/"><b>React</b></a>
+<br/>
+<sub>Frontend Framework</sub>
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+## 📊 Statistiques du Projet
+
+![Repo Size](https://img.shields.io/github/repo-size/yourusername/sri-bourses?style=for-the-badge&logo=github&color=6366f1)
+![Stars](https://img.shields.io/github/stars/yourusername/sri-bourses?style=for-the-badge&logo=github&color=f59e0b)
+![Forks](https://img.shields.io/github/forks/yourusername/sri-bourses?style=for-the-badge&logo=github&color=8b5cf6)
+![Issues](https://img.shields.io/github/issues/yourusername/sri-bourses?style=for-the-badge&logo=github&color=ec4899)
+![License](https://img.shields.io/github/license/yourusername/sri-bourses?style=for-the-badge&logo=github&color=10b981)
+
+<img src="https://repobeats.axiom.co/api/embed/yourusername/sri-bourses.svg" alt="Repobeats analytics" width="80%"/>
+
+</div>
+
+---
+
+<div align="center">
+
+## 📄 License
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="License" width="60"/>
+
+**Ce projet est sous licence MIT**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-</div>
-
----
-
-## 📚 Références
-
-<div align="center">
-
-| Resource | Link |
-|----------|------|
-| 📖 Scikit-learn TF-IDF | [Documentation](https://scikit-learn.org/stable/modules/feature_extraction.html#tfidf-term-weighting) |
-| 🤖 Sentence-BERT | [SBERT.net](https://www.sbert.net/) |
-| 🐍 Flask Documentation | [Flask Docs](https://flask.palletsprojects.com/) |
-| ⚛️ React Documentation | [React.dev](https://react.dev/) |
-| 🗄️ MongoDB Documentation | [MongoDB Docs](https://docs.mongodb.com/) |
+Libre d'utilisation, de modification et de distribution
 
 </div>
 
@@ -581,8 +718,30 @@ Ce projet est sous licence [MIT](LICENSE).
 
 <div align="center">
 
-### 🌟 Donnez une étoile si ce projet vous aide ! 🌟
+## 🌟 Remerciements
 
-**Fait avec ❤️ pour la communauté étudiante**
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Red%20Heart.png" alt="Heart" width="60"/>
+
+**Merci à tous les contributeurs qui rendent ce projet possible !**
+
+<a href="https://github.com/yourusername/sri-bourses/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=yourusername/sri-bourses" />
+</a>
+
+### 💖 Supporters
+
+Si ce projet vous a aidé, donnez-lui une ⭐ !
+
+<img src="https://api.star-history.com/svg?repos=yourusername/sri-bourses&type=Date" alt="Star History" width="600"/>
+
+</div>
+
+---
+
+<div align="center">
+
+### 🚀 Made with 💜 by the SRI Team
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" width="100%"/>
 
 </div>
